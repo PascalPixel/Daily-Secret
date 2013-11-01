@@ -1,0 +1,34 @@
+
+User-agent: NinjaBot
+Allow: /
+
+User-Agent: *
+Disallow: */promotion
+Disallow: */promotions/*
+Disallow: */promotion_share
+Disallow: */share_promotion
+Disallow: */terms
+Disallow: /?login=open
+Disallow: /?forgot_password=open
+Disallow: /admin/*
+Disallow: /insights/*
+Disallow: /resque/*
+Disallow: /resubscribe/*
+Disallow: /unsubscribe/*
+Disallow: /facebook_page_form
+Disallow: /facebook_page_welcome
+Disallow: /ajax/resend-signup-email/
+Disallow: /ajax/reset-password/
+Disallow: /facebook-login
+Disallow: /signmark
+Disallow: /about/*
+Disallow: /company/*
+Disallow: /ajax/resend-signup-email
+Disallow: /submit
+Disallow: /mobile
+
+
+Sitemap: http://www.dailysecret.com/sitemaps/www/sitemap1.xml.gz
+
+
+
