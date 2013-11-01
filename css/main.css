@@ -258,6 +258,10 @@ line-height:1.4em;
 -webkit-font-smoothing:antialiased;
 }
 
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+  font-family:Georgia, serif;
+}
+
 a {
 color:#FFF;
 text-decoration:none;
@@ -3454,7 +3458,7 @@ vertical-align:middle;
 body.landing .we-are-hiring {
 display:block;
 position:absolute;
-top:0;
+top:50px;
 right:0;
 }
 
