@@ -1,10 +1,5 @@
-<!--[if lt IE 7]> <html class="no-js ie6 oldie" lang="en"> <![endif]-->
-<!--[if IE 7]>    <html class="no-js ie7 oldie" lang="en"> <![endif]-->
-<!--[if IE 8]>    <html class="no-js ie8" lang="en"> <![endif]-->
-<!--[if gt IE 8]><!-->
-
-<html class="no-js" lang="en">
-<!--<![endif]-->
+<!DOCTYPE html>
+<html>
 
 <head>
   <title>Welcome to Daily Secret. Insiders' guide from real insiders.</title>
@@ -15,17 +10,25 @@
   <link href="css/main.css" media="all" rel="stylesheet" type="text/css">
   
   <script type="text/javascript"
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDg31GSQiRXX1xVPRkUn6613VDZsSWfESM&sensor=false">
+      src="http://maps.googleapis.com/maps/api/js?sensor=false">
     </script>
     <script type="text/javascript">
       function initialize() {
-        var mapOptions = {
-          center: new google.maps.LatLng(-34.397, 150.644),
-          zoom: 8,
-          mapTypeId: google.maps.MapTypeId.ROADMAP
-        };
-        var map = new google.maps.Map(document.getElementById("map-canvas"),
-            mapOptions);
+      var myLatlng = new google.maps.LatLng(37.983716,23.729310);
+		var mapOptions = {
+		  zoom: 4,
+		  center: myLatlng,
+		  disableDefaultUI: true,
+		  mapTypeId: google.maps.MapTypeId.ROADMAP
+		}
+		var map = new google.maps.Map(document.getElementById("map-canvas"), mapOptions);
+		
+		// To add the marker to the map, use the 'map' property
+		var marker = new google.maps.Marker({
+		    position: myLatlng,
+		    map: map,
+		    title:"Hello World!"
+		});
       }
       google.maps.event.addDomListener(window, 'load', initialize);
     </script>
@@ -41,7 +44,8 @@
       <ul class="nav navbar-nav">
         <li class="active"><a href="#">Europe & Middle-East</a></li>
         <li><a href="#">Asia</a></li>
-        <li><a href="#">America's</a></li>
+        <li><a href="#">North America</a></li>
+        <li><a href="#">South America</a></li>
       </ul>
       <ul class="nav navbar-nav navbar-right">
         <li>
@@ -50,6 +54,10 @@
       </ul>
     </div><!-- /.navbar-collapse -->
   </nav>
+  
+	<div class="world-map hidden-xs">
+		<div id="map-canvas"/>
+	</div>
   
   <a class="we-are-hiring" href="http://ideas.dailysecret.com/careers-values/" target="_blank"><img alt="We are hiring!" src="http://static.dailysecret.com/assets/weAreHiringRibbon@2x-98d1c3d7d1363f75097cf48b2c693793.png"></a>
   
@@ -73,13 +81,6 @@
         <p class="fields"><input class="email required" id="user_email" name="user[email]" size="30" title="Your email address" type="text" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <input class="submit grey-button" name="subscribe" type="submit" value="Subscribe"> <span class="yellow-button signup glow"><input name="subscribe" type="submit" value="JOIN"></span></p>
       </form>
     </div>
-
-
-  <div class="world-map hidden-xs">
-  	<div class="map-europe">
-	  <div id="map-canvas"/>
-  	</div>
-  </div>
 
 	<div class="row">
       <div class="col-sm-9 visible-xs">
