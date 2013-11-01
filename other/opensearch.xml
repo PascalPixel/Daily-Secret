@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<OpenSearchDescription xmlns="http://a9.com/-/spec/opensearch/1.1/">
- <ShortName>DailySecret.com</ShortName>
- <Description>Search in Daily Secret</Description>
- <Url type="text/html" method="get" template="http://www.google.com/search?q={searchTerms}+site%3Adailysecret.com&amp;hl=en"/>
- <Image width="16" height="16" type="image/x-icon">http://static.dailysecret.com/assets/favicon.ico</Image>
-</OpenSearchDescription>
