@@ -1,5 +1,10 @@
 @charset UTF-8;
 
+img {
+max-height: 100%;
+max-width: 100%;
+}
+
 .datepick-popup {
 z-index:100;
 }
@@ -356,15 +361,6 @@ min-height:700px;
 padding:30px 0;
 }
 
-.container {
-position:relative;
-padding:0 10px;
-max-width:1240px;
-min-width:1000px;
-margin:0 auto;
-width:auto;
-}
-
 #register-box {
 float:left;
 padding:20px;
@@ -676,26 +672,26 @@ vertical-align:text-bottom;
 margin-bottom:15px;
 }
 
-@media only screen and max-device-width 480px and orientation portrait {
-.align-center {
-text-align:center!important;
-}
-
-.align-left {
-text-align:left!important;
-}
-
-.align-right {
-text-align:right!important;
-}
-
-.rtl .align-left {
-text-align:right!important;
-}
-
-.rtl .align-right {
-text-align:left!important;
-}
+@media only screen and (max-device-width:480px) and orientation portrait {
+	.align-center {
+	text-align:center!important;
+	}
+	
+	.align-left {
+	text-align:left!important;
+	}
+	
+	.align-right {
+	text-align:right!important;
+	}
+	
+	.rtl .align-left {
+	text-align:right!important;
+	}
+	
+	.rtl .align-right {
+	text-align:left!important;
+	}
 }
 
 .menu-links #lang-notification.second-language-alert {
@@ -795,7 +791,7 @@ left:14px;
 }
 
 @keyframes yellowGlow {
-frombackground-color:#fdec4e;
+from{background-color:#fdec4e;
 -webkit-box-shadow:0 0 1px #fdec4e;
 -moz-box-shadow:0 0 1px #fdec4e;
 box-shadow:0 0 1px #fdec4e;
@@ -817,7 +813,7 @@ box-shadow:0 0 1px #fdec4e;
 }
 
 @-webkit-keyframes yellowGlow {
-frombackground-color:#fdec4e;
+from{background-color:#fdec4e;
 -webkit-box-shadow:0 0 1px #fdec4e;
 -moz-box-shadow:0 0 1px #fdec4e;
 box-shadow:0 0 1px #fdec4e;
@@ -839,7 +835,7 @@ box-shadow:0 0 1px #fdec4e;
 }
 
 @-moz-keyframes yellowGlow {
-frombackground-color:#fdec4e;
+from{background-color:#fdec4e;
 -webkit-box-shadow:0 0 1px #fdec4e;
 -moz-box-shadow:0 0 1px #fdec4e;
 box-shadow:0 0 1px #fdec4e;
@@ -861,7 +857,7 @@ box-shadow:0 0 1px #fdec4e;
 }
 
 @-o-keyframes yellowGlow {
-frombackground-color:#fdec4e;
+from{background-color:#fdec4e;
 -webkit-box-shadow:0 0 1px #fdec4e;
 -moz-box-shadow:0 0 1px #fdec4e;
 box-shadow:0 0 1px #fdec4e;
@@ -1393,24 +1389,24 @@ box-shadow:0 1px 0 #718cbd inset;
 margin:0 2px;
 }
 
-@media only screen and max-width 960px {
-#footer-video-ad .big-row.video-signup .video-container {
-text-align:center;
-width:100%;
+@media only screen and (max-width:960px) {
+	#footer-video-ad .big-row.video-signup .video-container {
+	text-align:center;
+	width:100%;
+	}
+	
+	#footer-video-ad .big-row.video-signup .signup-form-container {
+	float:none;
+	margin:0 auto;
+	width:620px;
+	}
 }
 
-#footer-video-ad .big-row.video-signup .signup-form-container {
-float:none;
-margin:0 auto;
-width:620px;
-}
-}
-
-@media only screen and max-width 319px {
-#footer-video-ad .big-row.video-signup .video-container iframe {
-width:300px;
-height:169px;
-}
+@media only screen and (max-width:319px) {
+	#footer-video-ad .big-row.video-signup .video-container iframe {
+	width:300px;
+	height:169px;
+	}
 }
 
 #footer-video-ad .big-row.adsense {
@@ -1487,10 +1483,10 @@ margin:40px 0;
 width:240px;
 }
 
-@media max-width 767px {
-#footer .site-links {
-width:auto;
-}
+@media (max-width:767px) {
+	#footer .site-links {
+	width:auto;
+	}
 }
 
 #footer ul {
@@ -1525,10 +1521,10 @@ margin-bottom:10px;
 text-transform:uppercase;
 }
 
-@media max-width 767px {
-#footer .signup .button {
-float:none;
-}
+@media (max-width:767px) {
+	#footer .signup .button {
+	float:none;
+	}
 }
 
 #footer .badges {
@@ -1549,34 +1545,34 @@ padding-top:15px;
 text-transform:uppercase;
 }
 
-@media max-width 767px {
-#footer .copyright {
-border-bottom:1px solid #CCC;
-border-top:0;
-margin:0 0 30px;
-padding-bottom:15px;
-}
-
-#footer .linking ul {
-margin:0;
-}
-
-#footer .title {
-text-align:center;
-}
-
-#footer .badges img {
-margin-bottom:20px;
-}
-
-#footer .column {
-text-align:center;
-}
-
-#footer .column .endeavor {
-display:block;
-text-align:center;
-}
+@media (max-width:767px) {
+	#footer .copyright {
+	border-bottom:1px solid #CCC;
+	border-top:0;
+	margin:0 0 30px;
+	padding-bottom:15px;
+	}
+	
+	#footer .linking ul {
+	margin:0;
+	}
+	
+	#footer .title {
+	text-align:center;
+	}
+	
+	#footer .badges img {
+	margin-bottom:20px;
+	}
+	
+	#footer .column {
+	text-align:center;
+	}
+	
+	#footer .column .endeavor {
+	display:block;
+	text-align:center;
+	}
 }
 
 .oldie #footer .scroll-indicator,.ie8 #footer .scroll-indicator {
@@ -3455,38 +3451,19 @@ height:11px;
 vertical-align:middle;
 }
 
-body.landing .landing-box {
-float:left;
-width:660px;
-padding:20px;
-margin-bottom:10px;
-}
-
-body.landing .landing-box.header {
-min-height:205px;
-}
-
-body.landing .landing-box.main {
-height:280px;
-}
-
-body.landing .landing-box+.landing-box {
-margin-bottom:0;
-}
-
-body.landing .landing-box .we-are-hiring {
+body.landing .we-are-hiring {
 display:block;
 position:absolute;
 top:0;
 right:0;
 }
 
-body.landing .landing-box .we-are-hiring img {
+body.landing .we-are-hiring img {
 height:130px;
 width:130px;
 }
 
-body.landing .landing-box .intro {
+body.landing .intro {
 float:left;
 width:310px;
 padding-right:22px;
@@ -3494,7 +3471,7 @@ min-height:205px;
 border-right:1px solid #666;
 }
 
-body.landing .landing-box .intro .landing-logo {
+body.landing .intro .landing-logo {
 background:transparent url(http://static.dailysecret.com/assets/landingLogo-a3202bc61cbb9416944d2a8f061fa740.png) 0 0 no-repeat;
 display:block;
 height:61px;
@@ -3503,7 +3480,7 @@ margin:0 auto;
 width:310px;
 }
 
-body.landing .landing-box .intro .logo {
+body.landing .intro .logo {
 background:transparent url(http://static.dailysecret.com/assets/logo-upcoming@2x-863358290a6c3114bad1df090a6547df.png) 0 0 no-repeat;
 background-size:310px 67px;
 -webkit-background-size:310px 67px;
@@ -3517,7 +3494,7 @@ position:relative;
 width:310px;
 }
 
-body.landing .landing-box .intro .logo .coming-soon {
+body.landing .intro .logo .coming-soon {
 display:block;
 height:90px;
 position:absolute;
@@ -3527,41 +3504,41 @@ top:-21px;
 width:90px;
 }
 
-body.landing .landing-box .intro .logo .city {
+body.landing .intro .logo .city {
 bottom:9px;
 font-size:24px;
 position:absolute;
 right:64px;
 }
 
-body.landing .landing-box .intro .intro-text {
+body.landing .intro .intro-text {
 font-size:13px;
 line-height:18px;
 text-align:justify;
 margin:5px 0;
 }
 
-body.landing .landing-box .intro .intro-text.landing {
+body.landing .intro .intro-text.landing {
 font-size:14px;
 line-height:21px;
 margin:8px 0 0;
 }
 
-body.landing .landing-box .intro.edition {
+body.landing .intro.edition {
 width:340px;
 }
 
-body.landing .landing-box .intro .signup a,body.landing .landing-box .intro .welcome-user a {
+body.landing .intro .signup a,body.landing .intro .welcome-user a {
 color:#fdec4e;
 }
 
-body.landing .landing-box .intro .signup .ui-autocomplete li a,body.landing .landing-box .intro .welcome-user .ui-autocomplete li a {
+body.landing .intro .signup .ui-autocomplete li a,body.landing .intro .welcome-user .ui-autocomplete li a {
 color:#000;
 width:180px;
 text-align:left;
 }
 
-body.landing .landing-box .intro .signup .note,body.landing .landing-box .intro .welcome-user .note {
+body.landing .intro .signup .note,body.landing .intro .welcome-user .note {
 text-align:right;
 font-size:11px;
 font-style:italic;
@@ -3569,7 +3546,7 @@ margin-bottom:5px;
 margin-top:-5px;
 }
 
-body.landing .landing-box .intro .welcome-user {
+body.landing .intro .welcome-user {
 text-align:center;
 margin-top:5px;
 border-top:1px dotted #FFF;
@@ -3578,19 +3555,19 @@ font-size:14px;
 font-style:italic;
 }
 
-body.landing .landing-box .intro .welcome-user strong {
+body.landing .intro .welcome-user strong {
 color:#fdec4e;
 }
 
-body.landing .landing-box .intro .welcome-user a {
+body.landing .intro .welcome-user a {
 color:#FFF;
 }
 
-body.landing .landing-box .intro .welcome-user a:active {
+body.landing .intro .welcome-user a:active {
 color:#fdec4e;
 }
 
-body.landing .landing-box input {
+body.landing input {
 height:20px;
 vertical-align:top;
 -webkit-appearance:none;
@@ -3600,11 +3577,11 @@ vertical-align:top;
 border-radius:0;
 }
 
-body.landing .landing-box input.errorFlash {
+body.landing input.errorFlash {
 background:#FEE!important;
 }
 
-body.landing .landing-box .email {
+body.landing .email {
 width:180px;
 height:23px;
 background:#FFF;
@@ -3616,13 +3593,13 @@ color:#000;
 float:left;
 }
 
-body.landing .landing-box .grey-button {
+body.landing .grey-button {
 width:115px;
 display:none;
 flaot:right;
 }
 
-body.landing .landing-box .yellow-button {
+body.landing .yellow-button {
 float:right;
 background:#fdec4e;
 padding:1px;
@@ -3631,7 +3608,7 @@ vertical-align:middle;
 cursor:pointer;
 }
 
-body.landing .landing-box .yellow-button input {
+body.landing .yellow-button input {
 background:#fdec4e;
 border:1px solid #000;
 color:#000;
@@ -3647,22 +3624,22 @@ font-size:14px;
 font-weight:bold;
 }
 
-body.landing .landing-box .yellow-button:hover {
+body.landing .yellow-button:hover {
 background:#FFF;
 }
 
-body.landing .landing-box .yellow-button.glow {
+body.landing .yellow-button.glow {
 animation:yellowGlow 2s infinite;
 -moz-animation:yellowGlow 2s infinite;
 -webkit-animation:yellowGlow 2s infinite;
 -o-animation:yellowGlow 2s infinite;
 }
 
-body.landing .landing-box .yellow-button.glow input {
+body.landing .yellow-button.glow input {
 background-color:transparent;
 }
 
-body.landing .landing-box .quotes-container {
+body.landing .quotes-container {
 float:left;
 width:307px;
 height:110px;
@@ -3671,14 +3648,14 @@ margin-top:50px;
 background:url(quotemark.png) no-repeat top center;
 }
 
-body.landing .landing-box .quotes-container ul {
+body.landing .quotes-container ul {
 margin-top:20px;
 text-align:center;
 float:left;
 width:310px;
 }
 
-body.landing .landing-box .quotes-container ul li {
+body.landing .quotes-container ul li {
 width:310px;
 overflow:hidden;
 top:0;
@@ -3686,11 +3663,11 @@ left:0;
 display:none;
 }
 
-body.landing .landing-box .quotes-container ul li:first-child {
+body.landing .quotes-container ul li:first-child {
 display:block;
 }
 
-body.landing .landing-box .quotes-container ul li h2 {
+body.landing .quotes-container ul li h2 {
 font-size:24px;
 font-weight:normal;
 text-align:center;
@@ -3699,28 +3676,18 @@ padding:10px 0;
 width:100%;
 }
 
-body.landing .landing-box .quotes-container ul li p {
+body.landing .quotes-container ul li p {
 font-size:14px;
 font-style:italic;
 color:#ccc;
 }
 
-body.landing .landing-box .title {
-width:346px;
-height:198px;
-padding-top:7px;
-margin-right:-20px;
-display:table;
-float:right;
-text-align:center;
-}
-
-body.landing .landing-box .title .title-box {
+body.landing .title .title-box {
 display:table-cell;
 vertical-align:middle;
 }
 
-body.landing .landing-box .title .title-box .title-box-border {
+body.landing .title .title-box .title-box-border {
 padding-top:4px;
 text-transform:uppercase;
 font-family:Olympia;
@@ -3729,23 +3696,23 @@ border-top:3px double #FFF;
 border-bottom:3px double #FFF;
 }
 
-body.landing .landing-box .title.edition {
+body.landing .title.edition {
 width:316px;
 }
 
-body.landing .landing-box .scroll-container.smaller {
+body.landing .scroll-container.smaller {
 height:200px;
 }
 
-body.landing .landing-box .scroll-container.small {
+body.landing .scroll-container.small {
 height:220px;
 }
 
-body.landing .landing-box .scroll-container.medium {
+body.landing .scroll-container.medium {
 height:236px;
 }
 
-body.landing .landing-box .scroll-container.large {
+body.landing .scroll-container.large {
 height:278px;
 }
 
@@ -4130,7 +4097,7 @@ background:#fdec4e;
 border:1px solid #000;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro {
+body.landing#dailysecret-homepage .intro {
 border:0;
 height:auto;
 float:none;
@@ -4138,50 +4105,50 @@ padding:0;
 width:100%;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro h1 {
+body.landing#dailysecret-homepage .intro h1 {
 text-align:center;
 margin-top:10px;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro .intro-text {
+body.landing#dailysecret-homepage .intro .intro-text {
 font-size:16px;
 padding:0 20px;
 margin:10px auto 20px;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro form.signup .email {
+body.landing#dailysecret-homepage .intro form.signup .email {
 height:33px;
 width:400px;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro form.signup .yellow-button input {
+body.landing#dailysecret-homepage .intro form.signup .yellow-button input {
 height:31px;
 width:235px;
 }
 
-body.landing#dailysecret-homepage .landing-box .intro .welcome-user {
+body.landing#dailysecret-homepage .intro .welcome-user {
 padding-top:10px;
 }
 
-@media only screen and max-height 550px {
-body.landing {
-overflow:auto;
+@media only screen and (max-height:550px) {
+	body.landing {
+	overflow:auto;
+	}
+	
+	body.landing .background-container {
+	height:auto;
+	min-height:660px;
+	}
+	
+	body.landing #landing-content {
+	position:relative;
+	top:0;
+	left:0;
+	margin:10px auto!important;
+	}
 }
 
-body.landing .background-container {
-height:auto;
-min-height:660px;
-}
-
-body.landing #landing-content {
-position:relative;
-top:0;
-left:0;
-margin:10px auto!important;
-}
-}
-
-html.oldie #landing-content .landing-box .scroll-container {
+html.oldie #landing-content .scroll-container {
 overflow:auto;
 }
 
@@ -4213,7 +4180,7 @@ left:auto;
 margin:50px auto;
 }
 
-html.backgroundsize body.landing .landing-box .intro .landing-logo {
+html.backgroundsize body.landing .intro .landing-logo {
 background-image:url(http://static.dailysecret.com/assets/landingLogo@2x-8d5e16b6417bf7a980114836b741d5be.png);
 background-size:310px 61px;
 -webkit-background-size:310px 61px;
@@ -4296,7 +4263,7 @@ html.ie8 body.landing #main #landing-content.header .intro {
 height:205px;
 }
 
-html.ie8 body.landing .landing-box .footer-links {
+html.ie8 body.landing .footer-links {
 font-size:10px;
 }
 
@@ -4309,17 +4276,17 @@ margin-top:-321px;
 height:205px;
 }
 
-#main.national-edition #landing-content .landing-box .intro h1 {
+#main.national-edition #landing-content .intro h1 {
 margin-bottom:8px;
 }
 
-#main.national-edition #landing-content .landing-box .intro h1 img {
+#main.national-edition #landing-content .intro h1 img {
 display:block;
 width:310px;
 height:66px;
 }
 
-#main.national-edition #landing-content .landing-box .intro form#new_user.signup.generic {
+#main.national-edition #landing-content .intro form#new_user.signup.generic {
 padding-top:10px;
 }
 
@@ -4920,11 +4887,11 @@ color:#fdec4e;
 text-transform:none;
 }
 
-#main #landing-content.unsubscribe .landing-box .title {
+#main #landing-content.unsubscribe .title {
 height:196px;
 }
 
-#main #landing-content.unsubscribe .landing-box .unsubscribe-form .fields .yellow-button input {
+#main #landing-content.unsubscribe .unsubscribe-form .fields .yellow-button input {
 font-size:14px;
 }
 
@@ -5005,7 +4972,7 @@ height:575px;
 margin-top:-287px;
 }
 
-#share-edition #main #landing-content .landing-box .scroll-container {
+#share-edition #main #landing-content .scroll-container {
 height:248px;
 }
 
@@ -5148,14 +5115,14 @@ body.rtl form.generic {
 float:right;
 }
 
-body.rtl .landing-box .intro {
+body.rtl .intro {
 width:310px;
 float:right;
 padding-left:22px;
 padding-right:0;
 }
 
-body.rtl .landing-box .title {
+body.rtl .title {
 width:346px;
 border-left:none;
 border-right:1px solid #666;
@@ -5164,7 +5131,7 @@ margin-left:-20px;
 float:left;
 }
 
-body.rtl .landing-box .settings-tabs .tabs a {
+body.rtl .settings-tabs .tabs a {
 border-left:1px solid #666;
 }
 
@@ -5318,7 +5285,7 @@ background:url(white-new-window-indicator.png) left no-repeat;
 padding-left:14px;
 }
 
-.lisbon.landing .landing-box .title .title-box .title-box-border {
+.lisbon.landing .title .title-box .title-box-border {
 font-family:Impact;
 }
 
