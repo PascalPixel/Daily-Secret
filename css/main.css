@@ -5,6 +5,10 @@ max-height: 100%;
 max-width: 100%;
 }
 
+.world-map {
+background-image:url('../img/europe.jpg');background-size:cover;background-position:center center;margin-top:-20px;height:100%;
+}
+
 .datepick-popup {
 z-index:100;
 }
