@@ -224,7 +224,7 @@
             position: siteLatLng,
             map: map,
             title: sites.city_name,
-            html: "<h1>Daily Secret " + sites.city_name + "</h1><br><h5>TODAY IN " + sites.city_name + "</h5><br><h3>" + sites.languages[0].secret.title + "</h3><br><img src=\"" + sites.languages[0].secret.title,
+            html: "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img src=\"" + sites.languages[0].secret.image_url + "\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "">Read the rest of the secret »<\/a><\/p>",
             icon: image
           });
           var contentString = "Some content";
@@ -333,12 +333,14 @@
         </form>
 
         <div id="infobox">
-          <span class="small-headline">TODAY IN ATHENS</span>
-          <h3>5|25 <b>CRAZY BOAT RIDE</b></h3>
-          <span style="display:block;margin-top:-5px;">Music from on high</span>
-          <img src="http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg"/>
-          <p>5|25 Live Sessions Include a Surprise Concert on the roof of the Onassis Cultural Center.<br>
-<a href="http://www.link.com">Read the rest of the secret »</a></p>
+          <div id="secret">
+            <span class="small-headline">TODAY IN ATHENS</span>
+            <h3>5|25 <b>CRAZY BOAT RIDE</b></h3>
+            <span style="display:block;margin-top:-5px;">Music from on high</span>
+            <img src="http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg"/>
+            <p>5|25 Live Sessions Include a Surprise Concert on the roof of the Onassis Cultural Center.<br>
+  <a href="http://www.link.com">Read the rest of the secret »</a></p>
+          </div>
           <hr>
           <a class="btn" href="#">VIEW ALL OUR CITIES</a>
         </div>
