@@ -62,8 +62,12 @@ html,body {
   height: 100%;
 }
 
+body.landing ol, body.landing ul {
+  list-style-type: none;
+  padding-left: 0;
+}
+
 body.landing .world-map {
-  margin-top: -20px;
   height: 100%;
   overflow: hidden;
   background-color: #202020;
@@ -205,6 +209,10 @@ body.landing .email {
   float: left;
 }
 
+body.landing .badges img {
+  width: 50px;
+}
+
 body.landing .yellow-button {
   float: right;
   background: #fdec4e;
@@ -223,6 +231,12 @@ body.landing .yellow-button.glow {
 
 body.landing .yellow-button.glow input {
   background-color: transparent;
+  border: 0;
+}
+
+body.landing #footer {
+  background: black;
+  padding: 20px 0;
 }
 
 @media only screen and (max-width:768px) {
