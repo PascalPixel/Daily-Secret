@@ -139,10 +139,44 @@
     }
     
     var sites = [
-      ['Athens', 37.983716, 23.729310, 1, '<a href=\"http:\/\/greece.dailysecret.com\/athens\/en\"><img alt=\"Athens Daily Secret - English Edition\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/4\/logo_landmark_transparent_bg\/athens-daily-secret-in-english-logo.png\"><\/a><br><a href=\"http:\/\/greece.dailysecret.com\/athens\/el\"><img alt=\"Athens Daily Secret - Eλληνική Έκδοση\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/1\/logo_landmark_transparent_bg\/athens-daily-secret-landmark-logo.png\"><\/a>'],
-      ['Paris', 48.856614, 2.352222, 2, "<a href=\"http:\/\/france.dailysecret.com\/paris\/fr\"><img alt=\"Paris Daily Secret - Edition Française\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/25\/logo_landmark_transparent_bg\/paris-daily-secret-landmark-logo.png\"><\/a>"],
-      ['Stockholm', 59.328930, 18.064910, 3, "<a href=\"http:\/\/sweden.dailysecret.com\/stockholm\/se\"><img alt=\"Stockholm Daily Secret - Svenska Utgåva\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/118\/logo_landmark_transparent_bg\/stockholm-daily-secret-landmark-logo.png\"><\/a>"],
-      ['Lisbon', 38.725299, -9.150036, 4, "<a href=\"http:\/\/portugal.dailysecret.com\/lisbon\/pt\"><img alt=\"Lisbon Daily Secret - Português Edição\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/117\/logo_landmark_transparent_bg\/lisbon-daily-secret-landmark-logo.png\"><\/a>"]
+      {
+        "city_name": "athens",
+        "latitude": 49.231,
+        "longitude": 48.324,
+        "languages": [
+          {
+            "locale": "en",
+            "homepage_url": "http://greece.dailysecret.com/athens/en",
+            "flag_url": "http: //static.dailysecret.com/assets/new-flags/EN.png",
+            "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage"
+          },
+          {
+            "locale": "el",
+            "homepage_url": "http: //greece.dailysecret.com/athens/el",
+            "flag_url": "http: //static.dailysecret.com/assets/new-flags/EL.png",
+            "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage"
+          }
+        ]
+      },
+      {
+        "city_name": "istanbul",
+        "latitude": 21.231,
+        "longitude": 48.324,
+        "languages": [
+          {
+            "locale": "tr",
+            "homepage_url": "http://greece.dailysecret.com/athens/en",
+            "flag_url": "http: //static.dailysecret.com/assets/new-flags/EN.png",
+            "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage"
+          },
+          {
+            "locale": "en",
+            "homepage_url": "http: //greece.dailysecret.com/athens/el",
+            "flag_url": "http: //static.dailysecret.com/assets/new-flags/EL.png",
+            "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage"
+          }
+        ]
+      }
     ];
 
     function setMarkers(map, markers) {
@@ -154,13 +188,12 @@
       };
       for (var i = 0; i < markers.length; i++) {
         var sites = markers[i];
-        var siteLatLng = new google.maps.LatLng(sites[1], sites[2]);
+        var siteLatLng = new google.maps.LatLng(sites.latitude, sites.longitude);
         var marker = new google.maps.Marker({
           position: siteLatLng,
           map: map,
-          title: sites[0],
-          zIndex: sites[3],
-          html: sites[4],
+          title: sites.city_name,
+          html: sites.city_name,
           icon: image
         });
         var contentString = "Some content";
