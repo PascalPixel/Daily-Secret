@@ -160,13 +160,9 @@
         });
         var contentString = "Some content";
         google.maps.event.addListener(marker, "click", function() {
-          infowindow.setContent(this.html);
-          infowindow.open(map, this);
+          $('#infobox').html(this.html);
         });
       }
-      google.maps.event.addListener(marker, 'click', function(){
-        alert("you clicked me");
-      });
     }
     
     $(document).ready(function() {
@@ -245,6 +241,10 @@
   </div><a class="we-are-hiring" href="http://ideas.dailysecret.com/careers-values/" target="_blank"><img alt="We are hiring!" src="http://static.dailysecret.com/assets/weAreHiringRibbon@2x-98d1c3d7d1363f75097cf48b2c693793.png"></a>
 
   <div style="background:white;color:black;padding:20px;position:absolute;top:100px;left:40px;width:300px;">
+    <div id="infobox">
+      No marker clicked
+    </div>
+    <br>
     <h1><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="color:black;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
 
     <h2>Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</h2>

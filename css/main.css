@@ -22,6 +22,12 @@ img {
 	overflow: hidden;
 }
 
+#infobox {
+  background-color: black;
+  padding: 20px 20px 5px;
+  border-radius: 5px;
+}
+
 .navbar-brand {
 font-family:PlantinHeadlineMTBoldCond, Cambria, serif;
 font-size:18px;
@@ -34,20 +40,6 @@ font-weight: 500;
 	height: 100%;
 	width: 100%;
 	color:black;
-}
-
-#map_canvas a {
-	color:#447bae;
-}
-
-#map_canvas #contentpin {
-  background-color: black;
-  padding: 20px 20px 5px;
-  border-radius: 5px;
-}
-
-#map_canvas #contentpin img {
-  width: 230px;
 }
 
 .navbar-inverse .navbar-nav>.active>a, .navbar-inverse .navbar-nav>.active>a:hover, .navbar-inverse .navbar-nav>.active>a:focus {
