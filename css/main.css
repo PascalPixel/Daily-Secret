@@ -375,10 +375,6 @@ width:100%;
 color:#FFF;
 }
 
-body.landing #main {
-padding:0;
-}
-
 body.landing #landing-content {
 width:700px;
 height:575px;
@@ -1116,5 +1112,13 @@ padding-top:10px;
 	top:0;
 	left:0;
 	margin:10px auto!important;
+	}
+}
+@media only screen and (max-width:768px) {
+	.phone-padding img {
+  	padding: 15px 20px;
+	}
+	#footer {
+  	padding: 20px;
 	}
 }
