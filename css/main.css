@@ -131,6 +131,7 @@ html,body {
 #infobox .small-headline {
   margin-bottom: -15px;
   display: block;
+  text-transform: uppercase;
 }
 
 .navbar-brand {
