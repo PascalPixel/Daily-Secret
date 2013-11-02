@@ -239,12 +239,14 @@ body.landing #footer {
   padding: 20px 0;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:700px) {
+  body.landing {
+    padding: 70px 20px 20px;
+  }
 	body.landing .phone-padding img {
-  	padding: 15px 35px 15px 0px;
+  	padding: 15px;
 	}
 	body.landing #footer {
-  	padding: 20px;
   	text-align: center;
 	}
 }
