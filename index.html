@@ -21,6 +21,7 @@
       var asia = new google.maps.LatLng(29.031899, 94.115749);
       var northamerica = new google.maps.LatLng(37.090240, -95.712891);
       var southamerica = new google.maps.LatLng(-8.783195, -55.491477);
+      var all = new google.maps.LatLng(0, -37);
 
       google.maps.event.addDomListener(btnEurope, 'click', function() {
         map.setCenter(europe);
@@ -41,6 +42,10 @@
       google.maps.event.addDomListener(btnSouthamerica, 'click', function() {
         map.setCenter(southamerica);
         map.setZoom(4);
+      });
+      google.maps.event.addDomListener(btnAll, 'click', function() {
+        map.setCenter(all);
+        map.setZoom(2);
       });
     
     }
@@ -134,10 +139,10 @@
     }
     
     var sites = [
-      ['Athens', 37.983716, 23.729310, 1, '<div id="contentpin">' + '<a href=\"http:\/\/greece.dailysecret.com\/athens\/en\"><img alt=\"Athens Daily Secret - English Edition\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/4\/logo_landmark_transparent_bg\/athens-daily-secret-in-english-logo.png\"><\/a><br><a href=\"http:\/\/greece.dailysecret.com\/athens\/el\"><img alt=\"Athens Daily Secret - Eλληνική Έκδοση\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/1\/logo_landmark_transparent_bg\/athens-daily-secret-landmark-logo.png\"><\/a>' + '<\/div>'],
-      ['Paris', 48.856614, 2.352222, 2, '<div id="contentpin">' + "<a href=\"http:\/\/france.dailysecret.com\/paris\/fr\"><img alt=\"Paris Daily Secret - Edition Française\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/25\/logo_landmark_transparent_bg\/paris-daily-secret-landmark-logo.png\"><\/a>" + '<\/div>'],
-      ['Stockholm', 59.328930, 18.064910, 3, '<div id="contentpin">' + "<a href=\"http:\/\/sweden.dailysecret.com\/stockholm\/se\"><img alt=\"Stockholm Daily Secret - Svenska Utgåva\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/118\/logo_landmark_transparent_bg\/stockholm-daily-secret-landmark-logo.png\"><\/a>" + '<\/div>'],
-      ['Lisbon', 38.725299, -9.150036, 4, '<div id="contentpin">' + "<a href=\"http:\/\/portugal.dailysecret.com\/lisbon\/pt\"><img alt=\"Lisbon Daily Secret - Português Edição\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/117\/logo_landmark_transparent_bg\/lisbon-daily-secret-landmark-logo.png\"><\/a>" + '<\/div>']
+      ['Athens', 37.983716, 23.729310, 1, '<a href=\"http:\/\/greece.dailysecret.com\/athens\/en\"><img alt=\"Athens Daily Secret - English Edition\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/4\/logo_landmark_transparent_bg\/athens-daily-secret-in-english-logo.png\"><\/a><br><a href=\"http:\/\/greece.dailysecret.com\/athens\/el\"><img alt=\"Athens Daily Secret - Eλληνική Έκδοση\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/1\/logo_landmark_transparent_bg\/athens-daily-secret-landmark-logo.png\"><\/a>'],
+      ['Paris', 48.856614, 2.352222, 2, "<a href=\"http:\/\/france.dailysecret.com\/paris\/fr\"><img alt=\"Paris Daily Secret - Edition Française\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/25\/logo_landmark_transparent_bg\/paris-daily-secret-landmark-logo.png\"><\/a>"],
+      ['Stockholm', 59.328930, 18.064910, 3, "<a href=\"http:\/\/sweden.dailysecret.com\/stockholm\/se\"><img alt=\"Stockholm Daily Secret - Svenska Utgåva\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/118\/logo_landmark_transparent_bg\/stockholm-daily-secret-landmark-logo.png\"><\/a>"],
+      ['Lisbon', 38.725299, -9.150036, 4, "<a href=\"http:\/\/portugal.dailysecret.com\/lisbon\/pt\"><img alt=\"Lisbon Daily Secret - Português Edição\" src=\"http:\/\/static.dailysecret.com\/uploads\/edition\/117\/logo_landmark_transparent_bg\/lisbon-daily-secret-landmark-logo.png\"><\/a>"]
     ];
 
     function setMarkers(map, markers) {
@@ -173,6 +178,7 @@
          $('#menuAsia').removeClass('active');
          $('#menuNorthamerica').removeClass('active');
          $('#menuSouthamerica').removeClass('active');
+         $('#menuAll').removeClass('active');
       };
       $('#btnEurope').click(function() {
         resetMenu();
@@ -193,6 +199,10 @@
       $('#btnSouthamerica').click(function() {
         resetMenu();
         $('#menuSouthamerica').addClass('active');
+      });
+      $('#btnAll').click(function() {
+        resetMenu();
+        $('#menuAll').addClass('active');
       });
     });
     
@@ -226,6 +236,10 @@
         <li id="menuSouthamerica">
           <a id="btnSouthamerica" href="#">South America</a>
         </li>
+        
+        <li id="menuAll">
+          <a id="btnAll" href="#">All</a>
+        </li>
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -245,16 +259,16 @@
       Select your city
     </div>
     <br>
-    <h1><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="color:black;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
+    <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="color:black;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
 
-    <h2>Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</h2>
+    <h2 style="font-size:18px;line-height:26px;color:#606060;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</h2>
 
     <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
       <div style="margin:0;padding:0;display:inline">
         <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
       </div><br>
 
-      <p class="note">(Sorry, we couldn't locate you. <a href="view_form_to_subscribe_to_multiple_editions/index.html" rel="nofollow">Choose city</a>)</p>
+      <p class="note">(Sorry, we couldn't locate you. <a href="view_form_to_subscribe_to_multiple_editions/index.html" style="color:#fdec4e;" rel="nofollow">Choose city</a>)</p>
 
       <p class="fields"><input class="email required" id="user_email" name="user[email]" size="30" title="Your email address" type="text" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <input class="submit grey-button" name="subscribe" type="submit" value="Subscribe"> <span class="yellow-button signup glow"><input name="subscribe" type="submit" value="SIGN UP"></span></p>
     </form>
@@ -520,9 +534,8 @@
           </section>
         </section>
 
-        <h4 class="title hidden-xs">DAILY SECRET WORLDWIDE</h4>
-
         <section class="col-sm-3 hidden-xs">
+          <h4 class="title hidden-xs">DAILY SECRET WORLDWIDE</h4>
           <ul>
             <li>
               <a href="http://turkey.dailysecret.com/ankara/en" title="Ankara Daily Secret - English Edition">Ankara Daily Secret (EN)</a>
@@ -587,6 +600,7 @@
         </section>
 
         <section class="col-sm-3 hidden-xs">
+          <h4 class="title hidden-xs" style="opacity:0;">.</h4>
           <ul>
             <li>
               <a href="http://china.dailysecret.com/hongkong/en" title="Hong Kong Daily Secret - English Edition">Hong Kong Daily Secret</a>
@@ -651,6 +665,7 @@
         </section>
 
         <section class="col-sm-3 hidden-xs">
+          <h4 class="title hidden-xs" style="opacity:0;">.</h4>
           <ul>
             <li>
               <a href="http://greece.dailysecret.com/mykonos/el" title="Mykonos Daily Secret - Ελληνική Έκδοση">Mykonos Daily Secret</a>
