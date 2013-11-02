@@ -141,6 +141,12 @@
     ];
 
     function setMarkers(map, markers) {
+      var image = {
+        url: 'img/map-marker.png',
+        size: new google.maps.Size(20, 20),
+        origin: new google.maps.Point(0,0),
+        anchor: new google.maps.Point(10, 10)
+      };
       for (var i = 0; i < markers.length; i++) {
         var sites = markers[i];
         var siteLatLng = new google.maps.LatLng(sites[1], sites[2]);
@@ -149,7 +155,8 @@
           map: map,
           title: sites[0],
           zIndex: sites[3],
-          html: sites[4]
+          html: sites[4],
+          icon: image
         });
         var contentString = "Some content";
         google.maps.event.addListener(marker, "click", function() {
