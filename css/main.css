@@ -75,6 +75,14 @@ html,body {
   padding: 20px;
 }
 
+#infobox a {
+  background: #fdec4e;
+  color:black;
+  padding: 10px 10px 5px;
+  font-family: PlantinHeadlineMTBoldCond, Cambria, Georgia, serif;
+  text-transform: uppercase;
+}
+
 .navbar-brand {
   font-family: PlantinHeadlineMTBoldCond, Cambria, Georgia, serif;
   font-size: 22px;
