@@ -36,7 +36,7 @@
         });
         google.maps.event.addDomListener(btnNorthamerica, 'click', function() {
           map.setCenter(northamerica);
-          map.setZoom(4);
+          map.setZoom(5);
         });
         google.maps.event.addDomListener(btnSouthamerica, 'click', function() {
           map.setCenter(southamerica);
@@ -79,6 +79,8 @@
             visibility: "on"
           }, {
             color: "#fdec4e"
+          }, {
+            lightness: "-30"
           }]
         }, {
           featureType: "landscape",
@@ -94,7 +96,7 @@
           }, {
             saturation: "-100"
           }, {
-            lightness: "-80"
+            lightness: "-85"
           }]
         }, {}, {
           featureType: "road",
@@ -141,7 +143,7 @@
         var centerMap = new google.maps.LatLng(48, 5);
 
         var mapOptions = {
-          zoom: 4,
+          zoom: 5,
           disableDefaultUI: true,
           scrollwheel: false,
           draggable: true,
@@ -247,9 +249,9 @@
       function setMarkers(map, markers) {
         var image = {
           url: 'img/map-marker.png',
-          size: new google.maps.Size(20, 20),
+          size: new google.maps.Size(22, 40),
           origin: new google.maps.Point(0,0),
-          anchor: new google.maps.Point(10, 10)
+          anchor: new google.maps.Point(11, 40)
         };
         for (var i = 0; i < markers.length; i++) {
           var sites = markers[i];

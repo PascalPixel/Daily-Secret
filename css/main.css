@@ -41,7 +41,7 @@ text-transform: uppercase;
 }
 
 body.landing a {
-  color: #fdec4e;
+  color: #cecece;
   text-decoration: none;
 }
 
@@ -168,7 +168,7 @@ body.landing .navbar-inverse {
 }
 
 body.landing .navbar-inverse .navbar-nav>.active>a,body.landing .navbar-inverse .navbar-nav>.active>a:hover,body.landing .navbar-inverse .navbar-nav>.active>a:focus {
-  box-shadow: inset 0 2px 0 #fdec4e;
+  box-shadow: inset 0 -2px 0 #fdec4e;
 }
 
 body.landing .we-are-hiring {
