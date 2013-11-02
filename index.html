@@ -61,24 +61,27 @@
             ]
           },{
             "stylers": [
-              { "saturation": -100 }
+              { "saturation": 0 }
             ]
           },{
             "featureType": "water",
             "stylers": [
-              { "lightness": -80 }
+              { "lightness": -80 },
+              { "saturation": -100 }
             ]
           },{
             "featureType": "landscape",
             "stylers": [
-              { "lightness": -70 }
+              { "lightness": -60 },
+              { "saturation": -100 },
+              { "hue": "#fdec4e" }
             ]
           },{
             "featureType": "landscape.man_made",
             "stylers": [
-              { "hue": "#fff700" },
+              { "hue": "#fdec4e" },
               { "saturation": 100 },
-              { "lightness": 53 }
+              { "lightness": 20 }
             ]
           },{
             "featureType": "administrative",
@@ -113,7 +116,7 @@
           draggable: true,
           center: centerMap,
           mapTypeControlOptions: {
-            mapTypeIds: [google.maps.MapTypeId.ROADMAP, DAILY_SECRET_ID]
+            mapTypeIds: [google.maps.MapTypeId.TERRAIN, DAILY_SECRET_ID]
           },
           mapTypeId: DAILY_SECRET_ID
         };
