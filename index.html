@@ -224,7 +224,7 @@
             position: siteLatLng,
             map: map,
             title: sites.city_name,
-            html: "<a href=\"" + sites.languages + "\">" + "Daily Secret " + sites.city_name + " >></a>",
+            html: "<h1>Daily Secret " + sites.city_name + "</h1><br><h5>TODAY IN " + sites.city_name + "</h5><br><h3>" + sites.languages[0].secret.title + "</h3><br><img src=\"" + sites.languages[0].secret.title,
             icon: image
           });
           var contentString = "Some content";
