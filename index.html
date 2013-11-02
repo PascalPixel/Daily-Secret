@@ -17,10 +17,10 @@
     function HomeControl(controlDiv, map) {
     
       var europe = new google.maps.LatLng(48, 5);
-      var middleeast = new google.maps.LatLng(41.850033, -87.6500523);
-      var asia = new google.maps.LatLng(40, -87);
-      var northamerica = new google.maps.LatLng(41.850033, -87.6500523);
-      var southamerica = new google.maps.LatLng(41.850033, -87.6500523);
+      var middleeast = new google.maps.LatLng(29.298528, 42.550960);
+      var asia = new google.maps.LatLng(29.031899, 94.115749);
+      var northamerica = new google.maps.LatLng(37.090240, -95.712891);
+      var southamerica = new google.maps.LatLng(-8.783195, -55.491477);
 
       google.maps.event.addDomListener(btnEurope, 'click', function() {
         map.setCenter(europe);
@@ -32,15 +32,15 @@
       });
       google.maps.event.addDomListener(btnAsia, 'click', function() {
         map.setCenter(asia);
-        map.setZoom(5);
+        map.setZoom(4);
       });
       google.maps.event.addDomListener(btnNorthamerica, 'click', function() {
         map.setCenter(northamerica);
-        map.setZoom(5);
+        map.setZoom(4);
       });
       google.maps.event.addDomListener(btnSouthamerica, 'click', function() {
         map.setCenter(southamerica);
-        map.setZoom(5);
+        map.setZoom(4);
       });
     
     }
