@@ -12,7 +12,7 @@
   <script src="http://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
   <script type="text/javascript">
   
-    var map;
+    var MY_MAPTYPE_ID = 'custom_style';
     
     function HomeControl(controlDiv, map) {
     
@@ -48,16 +48,82 @@
     var infowindow = null;
 
     function initialize() {
+    
+      var featureOpts = [
+        {
+          "elementType": "labels",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },{
+          "stylers": [
+            { "saturation": -100 }
+          ]
+        },{
+          "featureType": "water",
+          "stylers": [
+            { "lightness": -65 }
+          ]
+        },{
+          "featureType": "landscape",
+          "stylers": [
+            { "lightness": -81 }
+          ]
+        },{
+          "featureType": "landscape.man_made",
+          "stylers": [
+            { "hue": "#fff700" },
+            { "saturation": 100 },
+            { "lightness": 53 }
+          ]
+        },{
+          "featureType": "administrative",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },{
+          "featureType": "road",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },{
+          "featureType": "transit",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },{
+          "featureType": "poi",
+          "stylers": [
+            { "visibility": "off" }
+          ]
+        },{
+        }
+      ];
+      
       var centerMap = new google.maps.LatLng(48, 5);
-      var myOptions = {
+      
+      var mapOptions = {
         zoom: 4,
         disableDefaultUI: true,
         scrollwheel: false,
         draggable: true,
         center: centerMap,
-        mapTypeId: google.maps.MapTypeId.ROADMAP
-      }
-      var map = new google.maps.Map(document.getElementById("map_canvas"), myOptions);
+        mapTypeControlOptions: {
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+        },
+        mapTypeId: MY_MAPTYPE_ID
+      };
+      
+      var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
+      
+      var styledMapOptions = {
+        name: 'Daily Secret'
+      };
+      
+      var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
+
+      map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+      
       setMarkers(map, sites);
       infowindow = new google.maps.InfoWindow({
         content: "loading..."
