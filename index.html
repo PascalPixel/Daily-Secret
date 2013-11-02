@@ -12,7 +12,7 @@
   <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
   <script type="text/javascript">
   
-    var MY_MAPTYPE_ID = 'custom_style';
+    var DAILY_SECRET_ID = 'Daily Secret';
     
     function HomeControl(controlDiv, map) {
     
@@ -109,9 +109,9 @@
         draggable: true,
         center: centerMap,
         mapTypeControlOptions: {
-          mapTypeIds: [google.maps.MapTypeId.ROADMAP, MY_MAPTYPE_ID]
+          mapTypeIds: [google.maps.MapTypeId.ROADMAP, DAILY_SECRET_ID]
         },
-        mapTypeId: MY_MAPTYPE_ID
+        mapTypeId: DAILY_SECRET_ID
       };
       
       var map = new google.maps.Map(document.getElementById("map_canvas"), mapOptions);
@@ -122,7 +122,7 @@
       
       var customMapType = new google.maps.StyledMapType(featureOpts, styledMapOptions);
 
-      map.mapTypes.set(MY_MAPTYPE_ID, customMapType);
+      map.mapTypes.set(DAILY_SECRET_ID, customMapType);
       
       setMarkers(map, sites);
       infowindow = new google.maps.InfoWindow({
@@ -164,6 +164,9 @@
           infowindow.open(map, this);
         });
       }
+      google.maps.event.addListener(marker, 'click', function(){
+        alert("you clicked me");
+      });
     }
     
     $(document).ready(function() {
@@ -203,7 +206,7 @@
 <body class="landing">
   <nav class="navbar navbar-default navbar-inverse navbar-static-top">
     <div class="navbar-header">
-      <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#"><img src="img/landingLogo.png" style="margin-bottom:-10px;margin-top:0px;" width="140px"></a>
+      <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#" style="color:white;">DAILY SECRET</a>
     </div>
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">

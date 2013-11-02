@@ -22,6 +22,14 @@ img {
 	overflow: hidden;
 }
 
+.navbar-brand {
+font-family:PlantinHeadlineMTBoldCond, Cambria, serif;
+font-size:18px;
+text-transform:uppercase;
+color: white;
+font-weight: 500;
+}
+
 #map_canvas {
 	height: 100%;
 	width: 100%;
