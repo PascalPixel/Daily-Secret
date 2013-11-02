@@ -13,28 +13,34 @@
   <script type="text/javascript">
   
     var map;
-    var europe = new google.maps.LatLng(41.850033, -87.6500523);
-    var middleeast = new google.maps.LatLng(41.850033, -87.6500523);
-    var asia = new google.maps.LatLng(40, -87);
-    var northamerica = new google.maps.LatLng(41.850033, -87.6500523);
-    var southamerica = new google.maps.LatLng(41.850033, -87.6500523);
     
     function HomeControl(controlDiv, map) {
+    
+      var europe = new google.maps.LatLng(48, 5);
+      var middleeast = new google.maps.LatLng(41.850033, -87.6500523);
+      var asia = new google.maps.LatLng(40, -87);
+      var northamerica = new google.maps.LatLng(41.850033, -87.6500523);
+      var southamerica = new google.maps.LatLng(41.850033, -87.6500523);
 
       google.maps.event.addDomListener(btnEurope, 'click', function() {
-        map.setCenter(europe)
+        map.setCenter(europe);
+        map.setZoom(5);
       });
       google.maps.event.addDomListener(btnMiddleeast, 'click', function() {
-        map.setCenter(middleeast)
+        map.setCenter(middleeast);
+        map.setZoom(5);
       });
       google.maps.event.addDomListener(btnAsia, 'click', function() {
-        map.setCenter(asia)
+        map.setCenter(asia);
+        map.setZoom(5);
       });
       google.maps.event.addDomListener(btnNorthamerica, 'click', function() {
-        map.setCenter(northamerica)
+        map.setCenter(northamerica);
+        map.setZoom(5);
       });
       google.maps.event.addDomListener(btnSouthamerica, 'click', function() {
-        map.setCenter(southamerica)
+        map.setCenter(southamerica);
+        map.setZoom(5);
       });
     
     }
