@@ -163,10 +163,6 @@ body.landing #infobox p {
   text-align: left;
 }
 
-body.landing #infobox img {
-  margin: 10px 0;
-}
-
 body.landing #infobox h2 {
   color:black;
   padding: 10px 10px 5px;

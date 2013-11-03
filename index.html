@@ -182,7 +182,7 @@
             {
               "locale": "en",
               "homepage_url": "http://greece.dailysecret.com/athens/en",
-              "flag_url": "http: //static.dailysecret.com/assets/new-flags/EN.png",
+              "flag_url": "http://static.dailysecret.com/assets/new-flags/EN.png",
               "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
               "secret": {
                 "category": "Bars",
@@ -196,7 +196,7 @@
             {
               "locale": "el",
               "homepage_url": "http: //greece.dailysecret.com/athens/el",
-              "flag_url": "http: //static.dailysecret.com/assets/new-flags/EL.png",
+              "flag_url": "http://static.dailysecret.com/assets/new-flags/EL.png",
               "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
               "secret": {
                 "category": "Bars",
@@ -217,7 +217,7 @@
             {
               "locale": "tr",
               "homepage_url": "http://greece.dailysecret.com/athens/en",
-              "flag_url": "http: //static.dailysecret.com/assets/new-flags/EN.png",
+              "flag_url": "http://static.dailysecret.com/assets/new-flags/EN.png",
               "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
               "secret": {
                 "category": "Bars",
@@ -231,7 +231,7 @@
             {
               "locale": "en",
               "homepage_url": "http: //greece.dailysecret.com/athens/el",
-              "flag_url": "http: //static.dailysecret.com/assets/new-flags/EL.png",
+              "flag_url": "http://static.dailysecret.com/assets/new-flags/EL.png",
               "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
               "secret": {
                 "category": "Bars",
@@ -268,8 +268,8 @@
             map.panTo(this.position);
             $('input[name=selectedition]').val(this.title);
           });
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img width=\"20px\" src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img width=\"20px\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
         }
       }
 
