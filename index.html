@@ -267,7 +267,7 @@
           google.maps.event.addListener(marker, "click", function() {
             $('#secret').html(this.html);
             map.panTo(this.position);
-            /* //$('input[name=selectEdition]').val(this.title); */
+            $('input[name=selectedition]').val(this.title);
           });
         }
       }
@@ -366,7 +366,7 @@
           <div style="margin:0;padding:0;display:inline">
             <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
           </div><br>
-          <input style="display:none;" name="selectEdition">
+          <input style="display:none;" name="selectedition">
           <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="26" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP"></span></p>
         </form>
 
