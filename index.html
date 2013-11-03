@@ -276,8 +276,8 @@
       function makeList(editions) {
         for (var i = 0; i < editions.length; i++) {
           var sites = editions[i];
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
         }
       }
 
@@ -317,6 +317,9 @@
         });
         $('#VIEW_CITIES').click(function() {
           $('#CITY_LIST').slideToggle();
+        });
+        $('.editionname').click(function() {
+          $('#CITY_LIST').slideUp();
         });
       });
 
