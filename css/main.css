@@ -62,6 +62,54 @@ html,body {
   height: 100%;
 }
 
+body.landing .scroll-indicator-holder {
+display: block;
+height: 45px;
+left: 50%;
+margin-left: -43px;
+overflow: hidden;
+position: absolute;
+bottom: 0;
+width: 86px;
+font-family: Georgia;
+}
+
+body.landing .scroll-indicator {
+background: #FFF;
+border: 3px solid #000;
+-moz-border-radius: 80px;
+-webkit-border-radius: 80px;
+border-radius: 80px;
+-moz-background-clip: padding;
+-webkit-background-clip: padding-box;
+background-clip: padding-box;
+color: #000;
+display: block;
+font-size: 11px;
+height: 80px;
+line-height: 11px;
+padding-top: 10px;
+text-align: center;
+text-decoration: none;
+width: 80px;
+font-family: Georgia;
+}
+
+body.landing .scroll-indicator b {
+-moz-transition: all 0.2s ease-out;
+-o-transition: all 0.2s ease-out;
+-ms-transition: all 0.2s ease-out;
+-webkit-transition: all 0.2s ease-out;
+transition: all 0.2s ease-out;
+width: 0;
+height: 0;
+display: block;
+border-left: 6px solid transparent;
+border-right: 6px solid transparent;
+border-top: 6px solid #000;
+margin: 2px auto 0;
+}
+
 body.landing ol, body.landing ul {
   list-style-type: none;
   padding-left: 0;
@@ -69,6 +117,7 @@ body.landing ol, body.landing ul {
 
 body.landing .world-map {
   height: 100%;
+  width: 100%;
   overflow: hidden;
   background-color: #202020;
 }
@@ -232,6 +281,17 @@ body.landing .yellow-button.glow {
 body.landing .yellow-button.glow input {
   background-color: transparent;
   border: 0;
+}
+
+body.landing .submit, body.landing input[type=button], body.landing input[type=submit] {
+background: #f0cc00;
+background: -moz-linear-gradient(top, #f7e52d 0%, #f2d400 1%, #efc500 100%);
+background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #f7e52d), color-stop(1%, #f2d400), color-stop(100%, #efc500));
+background: -webkit-linear-gradient(top, #f7e52d 0%, #f2d400 1%, #efc500 100%);
+background: -o-linear-gradient(top, #f7e52d 0%, #f2d400 1%, #efc500 100%);
+background: -ms-linear-gradient(top, #f7e52d 0%, #f2d400 1%, #efc500 100%);
+background: linear,to bottom,#f7e52d 0%,#f2d400 1%,#efc500 100%;
+filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7e52d', endColorstr='#efc500',GradientType=0 );
 }
 
 body.landing #footer {
