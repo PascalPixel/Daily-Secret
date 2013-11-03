@@ -200,6 +200,10 @@ body.landing #map_canvas {
   background-color: #202020;
 }
 
+body.landing #map_canvas * {
+  max-width:none;
+}
+
 body.landing #CITY_LIST {
   text-align: left;
   height:200px;

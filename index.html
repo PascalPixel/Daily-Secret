@@ -268,20 +268,20 @@
             map.panTo(this.position);
             $('input[name=selectedition]').val(this.title);
           });
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img style=\"width:20px;\" src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img style=\"width:20px;\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
         }
       }
 
       $(document).ready(function() {
         initialize();
         var resetMenu = function() {
-           $('#menuEurope').removeClass('active');
-           $('#menuMiddleeast').removeClass('active');
-           $('#menuAsia').removeClass('active');
-           $('#menuNorthamerica').removeClass('active');
-           $('#menuSouthamerica').removeClass('active');
-           $('#menuAll').removeClass('active');
+          $('#menuEurope').removeClass('active');
+          $('#menuMiddleeast').removeClass('active');
+          $('#menuAsia').removeClass('active');
+          $('#menuNorthamerica').removeClass('active');
+          $('#menuSouthamerica').removeClass('active');
+          $('#menuAll').removeClass('active');
         };
         $('#btnEurope').click(function() {
           resetMenu();
@@ -309,6 +309,7 @@
         });
         $('#VIEW_CITIES').click(function() {
           $('#CITY_LIST').slideToggle();
+          $('#secret').html("");
         });
         $('.editionname').click(function() {
           $('#CITY_LIST').slideUp();
