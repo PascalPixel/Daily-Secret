@@ -96,7 +96,7 @@
           }, {
             saturation: "-100"
           }, {
-            lightness: "-85"
+            lightness: "-80"
           }]
         }, {}, {
           featureType: "road",
@@ -171,6 +171,8 @@
 
         var homeControlDiv = document.createElement('div');
         var homeControl = new HomeControl(homeControlDiv, map);
+        
+        makeList(sites);
       }
 
       var sites = [
@@ -263,12 +265,19 @@
             html: "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img src=\"" + sites.languages[0].secret.image_url + "\"\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "\">Read the rest of the secret >><\/a><\/p><hr>",
             icon: image
           });
-          var contentString = "Some content";
           google.maps.event.addListener(marker, "click", function() {
             $('#secret').html(this.html);
             map.panTo(this.position);
             $('input[name=selectedition]').val(this.title);
           });
+        }
+      }
+      
+      function makeList(editions) {
+        for (var i = 0; i < editions.length; i++) {
+          var sites = editions[i];
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"text-transform:uppercase;\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
         }
       }
 
@@ -375,187 +384,7 @@
           </div>
           <a class="btn" id="VIEW_CITIES" href="#">VIEW ALL OUR CITIES</a>
           <div id="CITY_LIST" style="display:none;">
-            <ul>
-              <li>
-                <a href="http://turkey.dailysecret.com/ankara/en" title="Ankara Daily Secret - English Edition">Ankara Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/ankara/tr" title="Ankara Daily Secret - Türkçe Edisyon ">Ankara Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/athens/el" title="Athens Daily Secret - Eλληνική Έκδοση">Athens Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/athens/en" title="Athens Daily Secret - English Edition">Athens Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://thailand.dailysecret.com/bangkok/en" title="Bangkok Daily Secret - English Edition">Bangkok Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://germany.dailysecret.com/berlin/de" title="Berlin Daily Secret - Deutsche Edition">Berlin Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/bodrum/en" title="Bodrum Daily Secret - English Edition">Bodrum Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/bodrum/tr" title="Bodrum Daily Secret - Türkçe Edisyon">Bodrum Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://romania.dailysecret.com/bucharest/ro" title="Bucharest Daily Secret - Ediție Românească">Bucharest Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://hungary.dailysecret.com/budapest/hu" title="Budapest Daily Secret - Magyar Kiadás">Budapest Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://argentina.dailysecret.com/buenosaires/en" title="Buenos Aires Daily Secret - English Edition">Buenos Aires Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://argentina.dailysecret.com/buenosaires/es" title="Buenos Aires Daily Secret - Edición en español">Buenos Aires Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://denmark.dailysecret.com/copenhagen/da" title="Copenhagen Daily Secret - Dansk Edition">Copenhagen Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://cyprus.dailysecret.com/cyprus/el" title="Cyprus Daily Secret - Ελληνική Έκδοση">Cyprus Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/nation/el" title="Greece Daily Secret - Eλληνική Έκδοση">Greece Daily Secret</a>
-              </li>
-              
-              <li>
-                <a href="http://china.dailysecret.com/hongkong/en" title="Hong Kong Daily Secret - English Edition">Hong Kong Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/istanbul/tr" title="Istanbul Daily Secret - Türkçe Edisyon ">Istanbul Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/istanbul/en" title="Istanbul Daily Secret - English Edition">Istanbul Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/izmir/tr" title="Izmir Daily Secret - Türkçe Edisyon ">Izmir Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/izmir/en" title="Izmir Daily Secret - English Edition">Izmir Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://peru.dailysecret.com/lima/es" title="Lima Daily Secret - Edición en español">Lima Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://peru.dailysecret.com/lima/en" title="Lima Daily Secret - English Edition">Lima Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://portugal.dailysecret.com/lisbon/pt" title="Lisbon Daily Secret - Português Edição">Lisbon Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://uk.dailysecret.com/london/en" title="London Daily Secret">London Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://spain.dailysecret.com/madrid/es" title="Madrid Daily Secret - Edición en español">Madrid Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://spain.dailysecret.com/madrid/en" title="Madrid Daily Secret - English Edition">Madrid Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://mexico.dailysecret.com/mexicocity/en" title="Mexico City - English Edition">Mexico City Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://mexico.dailysecret.com/mexicocity/es" title="Mexico Daily Secret - Edición en español">Mexico City Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://india.dailysecret.com/mumbai/en" title="Mumbai Daily Secret - English Edition">Mumbai Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/mykonos/en" title="Mykonos Daily Secret - English Edition">Mykonos Daily Secret (EN)</a>
-              </li>
-              
-              <li>
-                <a href="http://greece.dailysecret.com/mykonos/el" title="Mykonos Daily Secret - Ελληνική Έκδοση">Mykonos Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://panama.dailysecret.com/panamacity/es" title="Panama Daily Secret - Edición en español">Panama Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://france.dailysecret.com/paris/fr" title="Paris Daily Secret - Edition Française">Paris Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://usa.dailysecret.com/sanfrancisco/en" title="San Francisco Daily Secret">San Francisco Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://chile.dailysecret.com/santiago/es" title="Santiago Daily Secret - Edición en español">Santiago Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://china.dailysecret.com/shanghai/en" title="Shanghai Daily Secret - English Edition">Shanghai Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://sweden.dailysecret.com/stockholm/se" title="Stockholm Daily Secret - Svenska Utgåva">Stockholm Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://israel.dailysecret.com/telaviv/en" title="Tel Aviv Daily Secret - English Edition">Tel Aviv Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://israel.dailysecret.com/telaviv/he" title="Tel Aviv Daily Secret - גירסה עברית">Tel Aviv Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/thessaloniki/en" title="Thessaloniki Daily Secret - English Edition">Thessaloniki Daily Secret (EN)</a>
-              </li>
-            
-              <li>
-                <a href="http://greece.dailysecret.com/thessaloniki/el" title="Thessaloniki Daily Secret - Eλληνική Έκδοση">Thessaloniki Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://canada.dailysecret.com/toronto/en" title="Toronto Daily Secret">Toronto Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://turkey.dailysecret.com/nation/tr" title="Turkey Daily Secret - Türkçe Edisyon ">Turkey Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://canada.dailysecret.com/vancouver/en" title="Vancouver Daily Secret">Vancouver Daily Secret</a>
-              </li>
-            
-              <li>
-                <a href="http://austria.dailysecret.com/vienna/de" title="Vienna Daily Secret - Deutsche Edition">Vienna Daily Secret</a>
-              </li>
-            </ul>
+            <div id="editionList"></div>
           </div>
         </div>
       </div>
