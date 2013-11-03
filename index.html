@@ -203,9 +203,9 @@
       function setMarkers(map, markers) {
         var image = {
           url: 'img/map-marker.png',
-          size: new google.maps.Size(22, 40),
-          origin: new google.maps.Point(0,0),
-          anchor: new google.maps.Point(11, 40)
+          size: new google.maps.Size(115, 190),
+          scaledSize: new google.maps.Size(35, 60),
+          anchor: new google.maps.Point(17, 60)
         };
         for (var i = 0; i < markers.length; i++) {
           var sites = markers[i];
@@ -275,7 +275,7 @@
   <body class="landing">
     <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
       <div class="navbar-header">
-        <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> <a class="navbar-brand" href="#" style="color:white;">DAILY SECRET</a>
+        <!-- <button class="navbar-toggle" data-target="#bs-example-navbar-collapse-1" data-toggle="collapse" type="button"><span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></button> --> <a class="navbar-brand" href="#" style="color:white;">DAILY SECRET</a>
       </div>
 
       <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
@@ -310,11 +310,9 @@
       </div><!-- /.navbar-collapse -->
     </nav>
 
-    <div class="world-map hidden-xs">
+    <div class="world-map">
       
-      <div id="map_canvas"></div>
-      
-      <a class="we-are-hiring" href="http://ideas.dailysecret.com/careers-values/" target="_blank"><img alt="We are hiring!" src="http://static.dailysecret.com/assets/weAreHiringRibbon@2x-98d1c3d7d1363f75097cf48b2c693793.png"></a>
+      <div id="map_canvas" class="hidden-xs"></div>
 
       <div class="floatbox">
         <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
@@ -326,13 +324,13 @@
             <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
           </div><br>
           <input style="display:none;" name="selectedition">
-          <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="26" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP"></span></p>
+          <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
         </form>
 
-        <div id="infobox">
+        <div id="infobox hidden-xs">
           <div id="secret">
           </div>
-          <a class="btn" id="VIEW_CITIES" href="#">VIEW ALL OUR CITIES</a>
+          <a class="btn hidden-xs" id="VIEW_CITIES" href="#">VIEW ALL OUR CITIES</a>
           <div id="CITY_LIST" style="display:none;">
             <div id="editionList"></div>
           </div>
@@ -529,7 +527,7 @@
           </li>
         </ul>
       </div>
-      <span class="scroll-indicator-holder"><a class="scroll-indicator smooth-scrolr" href="#footer">SCROLL<br>DOWN<b></b></a></span>
+      <span class="scroll-indicator-holder hidden-xs"><a class="scroll-indicator smooth-scrolr small-headline" href="#footer">SCROLL DOWN</a></span>
     </div>
 
     <footer id="footer">

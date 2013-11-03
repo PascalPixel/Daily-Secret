@@ -66,48 +66,25 @@ body.landing .scroll-indicator-holder {
 display: block;
 height: 45px;
 left: 50%;
-margin-left: -43px;
+margin-left: -60px;
 overflow: hidden;
 position: absolute;
 bottom: 0;
-width: 86px;
+width: 120px;
 font-family: Georgia;
 }
 
 body.landing .scroll-indicator {
 background: #FFF;
-border: 3px solid #000;
--moz-border-radius: 80px;
--webkit-border-radius: 80px;
-border-radius: 80px;
--moz-background-clip: padding;
--webkit-background-clip: padding-box;
-background-clip: padding-box;
 color: #000;
 display: block;
-font-size: 11px;
-height: 80px;
+font-size: 13px;
+height: 45px;
 line-height: 11px;
-padding-top: 10px;
+padding-top: 17px;
 text-align: center;
 text-decoration: none;
-width: 80px;
-font-family: Georgia;
-}
-
-body.landing .scroll-indicator b {
--moz-transition: all 0.2s ease-out;
--o-transition: all 0.2s ease-out;
--ms-transition: all 0.2s ease-out;
--webkit-transition: all 0.2s ease-out;
-transition: all 0.2s ease-out;
-width: 0;
-height: 0;
-display: block;
-border-left: 6px solid transparent;
-border-right: 6px solid transparent;
-border-top: 6px solid #000;
-margin: 2px auto 0;
+width: 120px;
 }
 
 body.landing ol, body.landing ul {
@@ -225,18 +202,6 @@ body.landing .navbar-inverse .navbar-nav>.active>a,body.landing .navbar-inverse 
   box-shadow: inset 0 -2px 0 #fdec4e;
 }
 
-body.landing .we-are-hiring {
-  display: block;
-  position: absolute;
-  top: 50px;
-  right: 0;
-}
-
-body.landing .we-are-hiring img {
-  height: 130px;
-  width: 130px;
-}
-
 body.landing input {
   height: 20px;
   vertical-align: top;
@@ -270,10 +235,10 @@ body.landing .badges img {
 body.landing .yellow-button {
   float: right;
   background: #fdec4e;
-  padding: 1px;
   display: inline-block;
   vertical-align: middle;
   cursor: pointer;
+  width: 60px;
 }
 
 body.landing .yellow-button.glow {
@@ -300,11 +265,20 @@ filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#f7e52d', endC
 }
 
 body.landing #footer {
-  background: black;
+  background: white;
   padding: 20px 0;
+  color: black;
 }
 
-@media only screen and (max-width:700px) {
+body.landing #footer h4 {
+  color:black;
+}
+
+body.landing #footer a {
+  color:#828282;
+}
+
+@media only screen and (max-width:768px) {
   body.landing {
     padding: 70px 20px 20px;
   }
@@ -313,6 +287,14 @@ body.landing #footer {
 	}
 	body.landing #footer {
   	text-align: center;
+	}
+	body.landing .world-map {
+  	background: transparent;
+  	height: 300px;
+	}
+	body.landing .floatbox {
+  	width: auto;
+  	margin-right: 40px;
 	}
 }
 
