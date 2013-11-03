@@ -202,6 +202,7 @@ body.landing #map_canvas {
 
 body.landing #map_canvas * {
   max-width:none;
+  max-height: none;
 }
 
 body.landing #CITY_LIST {

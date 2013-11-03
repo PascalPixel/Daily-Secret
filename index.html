@@ -130,13 +130,21 @@
 
         var mapOptions = {
           zoom: 5,
-          disableDefaultUI: true,
           scrollwheel: false,
           draggable: true,
           center: centerMap,
           mapTypeControlOptions: {
             mapTypeIds: [google.maps.MapTypeId.TERRAIN, DAILY_SECRET_ID]
           },
+          mapTypeControl: false,
+          panControl: false,
+          zoomControl: true,
+          zoomControlOptions: {
+            style: google.maps.ZoomControlStyle.LARGE,
+            position: google.maps.ControlPosition.RIGHT_CENTER
+          },
+          scaleControl: false,
+          streetViewControl: false,
           mapTypeId: DAILY_SECRET_ID
         };
 
