@@ -62,20 +62,20 @@
           stylers: [{
             visibility: "on"
           }, {
-            color: "#444444"
+            color: "#333333"
           }]
         }, {
           featureType: "water",
           stylers: [{
             visibility: "on"
           }, {
-            color: "#222222"
+            color: "#111111"
           }]
         }, {
           featureType: "administrative.country",
           stylers: [
             { visibility: "on" },
-            { color: "#ffffff" },
+            { color: "#777777" },
             { weight: 0.5 }
           ]
         }, {
@@ -215,9 +215,11 @@
             map: map,
             title: sites.city_name,
             html: "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img style=\"margin:10px 0 15px;\" src=\"" + sites.languages[0].secret.image_url + "\"\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "\">Read the rest of the secret >><\/a><\/p><hr>",
+            bigfloat: "<img width=\"50px\" height=\"50px\" style=\"margin-top: -15px;margin-right:10px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",
             icon: image
           });
           google.maps.event.addListener(marker, "click", function() {
+            $('#bigfloat').html(this.bigfloat);
             $('#secret').html(this.html);
             map.panTo(this.position);
             $('input[name=selectedition]').val(this.title);
@@ -262,349 +264,350 @@
           $('#menuAll').addClass('active');
         });
         $('#VIEW_CITIES').click(function() {
-          $('#CITY_LIST').slideToggle();
-          $('#secret').html("");
-        });
-        $('.editionname').click(function() {
-          $('#CITY_LIST').slideUp();
+          $('#CITY_LIST').addClass("active");
+          $('.wrap').addClass("active");
         });
       });
 
     </script>
   </head>
   <body class="landing">
-    <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
-      <div class="navbar-header">
-        <a class="navbar-brand" href="#" style="color:white;"><img width="15px" height="15px" style="margin-top: -5px;margin-right: 5px;" src="http://static.dailysecret.com/assets/new/birdy-b6e1b6958123c28db301211f5a15635f.png"/>DAILY SECRET</a>
-      </div>
-    </nav>
-    
-    <nav class="navbar navbar-default navbar navbar-fixed-top navbar-2 hidden-xs">
-      <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-        <ul class="nav navbar-nav">
-          
-          <li id="menuAll">
-            <a href="#" id="btnAll">All</a>
-          </li>
-          |
-          <li class="active" id="menuEurope">
-            <a href="#" id="btnEurope">Europe</a>
-          </li>
-          |
-          <li id="menuMiddleeast">
-            <a href="#" id="btnMiddleeast">Middle-East</a>
-          </li>
-          |
-          <li id="menuAsia">
-            <a href="#" id="btnAsia">Asia</a>
-          </li>
-          |
-          <li id="menuNorthamerica">
-            <a href="#" id="btnNorthamerica">North America</a>
-          </li>
-          |
-          <li id="menuSouthamerica">
-            <a href="#" id="btnSouthamerica">South America</a>
-          </li>
-          
-        </ul>
-        
-      </div><!-- /.navbar-collapse -->
-    </nav>
-
-    <div class="world-map">
+    <div id="CITY_LIST">
+      <div id="editionList"></div>
+    </div>
+    <div class="wrap">
+      <nav class="navbar navbar-default navbar-inverse navbar-fixed-top">
+        <div class="navbar-header">
+          <a id="VIEW_CITIES" href="#">VIEW ALL OUR CITIES</a>
+          <a class="navbar-brand" href="#" style="color:white;"><img width="15px" height="15px" style="margin-top: -5px;margin-right: 5px;" src="http://static.dailysecret.com/assets/new/birdy-b6e1b6958123c28db301211f5a15635f.png"/>DAILY SECRET</a>
+        </div>
+      </nav>
       
-      <div id="map_canvas" class="hidden-xs"></div>
-
-      <div class="floatbox">
-        <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
-        <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: -15px 0 10px;">BECOME A MEMBER</h1>
-        <span style="font-size:14px;line-height:20px;color:#FFF;text-transform:none;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</span>
-
-        <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
-          <div style="margin:0;padding:0;display:inline">
-            <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
-          </div><br>
-          <input style="display:none;" name="selectedition">
-          <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
-        </form>
-
-        <div id="infobox" class="hidden-xs">
-          <div id="secret">
-          </div>
-          <a class="btn hidden-xs" id="VIEW_CITIES" href="#">VIEW ALL OUR CITIES</a>
-          <div id="CITY_LIST" style="display:none;">
-            <div id="editionList"></div>
+      <nav class="navbar navbar-default navbar navbar-fixed-top navbar-2 hidden-xs">
+        <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+          <ul class="nav navbar-nav">
+            
+            <li id="menuAll">
+              <a href="#" id="btnAll">All</a>
+            </li>
+            |
+            <li class="active" id="menuEurope">
+              <a href="#" id="btnEurope">Europe</a>
+            </li>
+            |
+            <li id="menuMiddleeast">
+              <a href="#" id="btnMiddleeast">Middle-East</a>
+            </li>
+            |
+            <li id="menuAsia">
+              <a href="#" id="btnAsia">Asia</a>
+            </li>
+            |
+            <li id="menuNorthamerica">
+              <a href="#" id="btnNorthamerica">North America</a>
+            </li>
+            |
+            <li id="menuSouthamerica">
+              <a href="#" id="btnSouthamerica">South America</a>
+            </li>
+            
+          </ul>
+          
+        </div><!-- /.navbar-collapse -->
+      </nav>
+  
+      <div class="world-map">
+        
+        <div id="map_canvas" class="hidden-xs"></div>
+        
+        <div class="dailysecretfloat" id="bigfloat"></div>
+        
+        <div class="floatbox">
+          <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
+          <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: -15px 0 10px;">BECOME A MEMBER</h1>
+          <span style="font-size:14px;line-height:20px;color:#FFF;text-transform:none;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</span>
+  
+          <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
+            <div style="margin:0;padding:0;display:inline">
+              <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
+            </div><br>
+            <input style="display:none;" name="selectedition">
+            <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
+          </form>
+  
+          <div id="infobox" class="hidden-xs">
+            <div id="secret">
+            </div>
           </div>
         </div>
-      </div>
-      
-    </div>
-
-    <div class="row phone-padding">
-      <div class="col-sm-9 visible-xs">
-        <ul class="editions">
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://turkey.dailysecret.com/ankara/en"><img alt="Ankara Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/124/logo_landmark_transparent_bg/ankara-daily-secret-in-english-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"tr"}'>
-            <a href="http://turkey.dailysecret.com/ankara/tr"><img alt="Ankara Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/33/logo_landmark_transparent_bg/ankara-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://greece.dailysecret.com/athens/en"><img alt="Athens Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/4/logo_landmark_transparent_bg/athens-daily-secret-in-english-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"el"}'>
-            <a href="http://greece.dailysecret.com/athens/el"><img alt="Athens Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/1/logo_landmark_transparent_bg/athens-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"asia","locale":"en"}'>
-            <a href="http://thailand.dailysecret.com/bangkok/en"><img alt="Bangkok Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/42/logo_landmark_transparent_bg/bangkok-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"de"}'>
-            <a href="http://germany.dailysecret.com/berlin/de"><img alt="Berlin Daily Secret - Deutsche Edition" src="http://static.dailysecret.com/uploads/edition/15/logo_landmark_transparent_bg/berlin-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://turkey.dailysecret.com/bodrum/en"><img alt="Bodrum Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/107/logo_landmark_transparent_bg/bodrum-daily-secret-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"tr"}'>
-            <a href="http://turkey.dailysecret.com/bodrum/tr"><img alt="Bodrum Daily Secret - Türkçe Edisyon" src="http://static.dailysecret.com/uploads/edition/17/logo_landmark_transparent_bg/bodrum-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"ro"}'>
-            <a href="http://romania.dailysecret.com/bucharest/ro"><img alt="Bucharest Daily Secret - Ediție Românească" src="http://static.dailysecret.com/uploads/edition/120/logo_landmark_transparent_bg/bucharest-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"hu"}'>
-            <a href="http://hungary.dailysecret.com/budapest/hu"><img alt="Budapest Daily Secret - Magyar Kiadás" src="http://static.dailysecret.com/uploads/edition/119/logo_landmark_transparent_bg/budapest-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"es"}'>
-            <a href="http://argentina.dailysecret.com/buenosaires/es"><img alt="Buenos Aires Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/24/logo_landmark_transparent_bg/buenosaires-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://argentina.dailysecret.com/buenosaires/en"><img alt="Buenos Aires Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/61/logo_landmark_transparent_bg/buenosaires-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"da"}'>
-            <a href="http://denmark.dailysecret.com/copenhagen/da"><img alt="Copenhagen Daily Secret - Dansk Edition" src="http://static.dailysecret.com/uploads/edition/122/logo_landmark_transparent_bg/copenhagen-daily-secret-logo-landmark.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"el"}'>
-            <a href="http://cyprus.dailysecret.com/cyprus/el"><img alt="Cyprus Daily Secret - Ελληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/64/logo_landmark_transparent_bg/cyprus-daily-secret-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"el"}'>
-            <a href="http://greece.dailysecret.com/nation/el"><img alt="Greece Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/114/logo_landmark_transparent_bg/greece-daily-secret-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"asia","locale":"en"}'>
-            <a href="http://china.dailysecret.com/hongkong/en"><img alt="Hong Kong Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/56/logo_landmark_transparent_bg/hongkong-daily-secret-in-english-logo1.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://turkey.dailysecret.com/istanbul/en"><img alt="Istanbul Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/12/logo_landmark_transparent_bg/istanbul-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"tr"}'>
-            <a href="http://turkey.dailysecret.com/istanbul/tr"><img alt="Istanbul Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/3/logo_landmark_transparent_bg/istanbul-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://turkey.dailysecret.com/izmir/en"><img alt="Izmir Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/50/logo_landmark_transparent_bg/izmir-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"tr"}'>
-            <a href="http://turkey.dailysecret.com/izmir/tr"><img alt="Izmir Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/113/logo_landmark_transparent_bg/izmir-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://peru.dailysecret.com/lima/en"><img alt="Lima Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/59/logo_landmark_transparent_bg/lima-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"es"}'>
-            <a href="http://peru.dailysecret.com/lima/es"><img alt="Lima Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/13/logo_landmark_transparent_bg/lima-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"pt-PT"}'>
-            <a href="http://portugal.dailysecret.com/lisbon/pt"><img alt="Lisbon Daily Secret - Português Edição" src="http://static.dailysecret.com/uploads/edition/117/logo_landmark_transparent_bg/lisbon-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://uk.dailysecret.com/london/en"><img alt="London Daily Secret" src="http://static.dailysecret.com/uploads/edition/44/logo_landmark_transparent_bg/london-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://spain.dailysecret.com/madrid/en"><img alt="Madrid Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/23/logo_landmark_transparent_bg/madrid-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"es"}'>
-            <a href="http://spain.dailysecret.com/madrid/es"><img alt="Madrid Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/26/logo_landmark_transparent_bg/madrid-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"es"}'>
-            <a href="http://mexico.dailysecret.com/mexicocity/es"><img alt="Mexico Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/20/logo_landmark_transparent_bg/mexicocity-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://mexico.dailysecret.com/mexicocity/en"><img alt="Mexico City - English Edition" src="http://static.dailysecret.com/uploads/edition/60/logo_landmark_transparent_bg/mexicocity-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"asia","locale":"en"}'>
-            <a href="http://india.dailysecret.com/mumbai/en"><img alt="Mumbai Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/82/logo_landmark_transparent_bg/mumbai-daily-secret-in-english-logo1.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://greece.dailysecret.com/mykonos/en"><img alt="Mykonos Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/106/logo_landmark_transparent_bg/mykonos-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"el"}'>
-            <a href="http://greece.dailysecret.com/mykonos/el"><img alt="Mykonos Daily Secret - Ελληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/16/logo_landmark_transparent_bg/mykonos-daily-secret-land.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"es"}'>
-            <a href="http://panama.dailysecret.com/panamacity/es"><img alt="Panama Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/105/logo_landmark_transparent_bg/panama-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"fr"}'>
-            <a href="http://france.dailysecret.com/paris/fr"><img alt="Paris Daily Secret - Edition Française" src="http://static.dailysecret.com/uploads/edition/25/logo_landmark_transparent_bg/paris-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://usa.dailysecret.com/sanfrancisco/en"><img alt="San Francisco Daily Secret" src="http://static.dailysecret.com/uploads/edition/14/logo_landmark_transparent_bg/sanfrancisco-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"es"}'>
-            <a href="http://chile.dailysecret.com/santiago/es"><img alt="Santiago Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/86/logo_landmark_transparent_bg/santiago-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"asia","locale":"en"}'>
-            <a href="http://china.dailysecret.com/shanghai/en"><img alt="Shanghai Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/19/logo_landmark_transparent_bg/shanghai-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"se"}'>
-            <a href="http://sweden.dailysecret.com/stockholm/se"><img alt="Stockholm Daily Secret - Svenska Utgåva" src="http://static.dailysecret.com/uploads/edition/118/logo_landmark_transparent_bg/stockholm-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"he"}'>
-            <a href="http://israel.dailysecret.com/telaviv/he"><img alt="Tel Aviv Daily Secret - גירסה עברית" src="http://static.dailysecret.com/uploads/edition/29/logo_landmark_transparent_bg/telaviv-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://israel.dailysecret.com/telaviv/en"><img alt="Tel Aviv Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/32/logo_landmark_transparent_bg/telaviv-daily-secret-in-english-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"el"}'>
-            <a href="http://greece.dailysecret.com/thessaloniki/el"><img alt="Thessaloniki Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/9/logo_landmark_transparent_bg/thessaloniki-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"en"}'>
-            <a href="http://greece.dailysecret.com/thessaloniki/en"><img alt="Thessaloniki Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/121/logo_landmark_transparent_bg/thessaloniki-in-english-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://canada.dailysecret.com/toronto/en"><img alt="Toronto Daily Secret" src="http://static.dailysecret.com/uploads/edition/94/logo_landmark_transparent_bg/toronto-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"tr"}'>
-            <a href="http://turkey.dailysecret.com/nation/tr"><img alt="Turkey Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/65/logo_landmark_transparent_bg/turkey-daily-secret-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"americas","locale":"en"}'>
-            <a href="http://canada.dailysecret.com/vancouver/en"><img alt="Vancouver Daily Secret" src="http://static.dailysecret.com/uploads/edition/27/logo_landmark_transparent_bg/vancouver-daily-secret-landmark-logo.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"de"}'>
-            <a href="http://austria.dailysecret.com/vienna/de"><img alt="Vienna Daily Secret - Deutsche Edition" src="http://static.dailysecret.com/uploads/edition/28/logo_landmark_transparent_bg/vienna-daily-secret-landmark.png"></a>
-          </li>
-
-          <li data-target='{"region":"europe","locale":"pl"}'>
-            <a href="http://poland.dailysecret.com/warsaw/pl"><img alt="Warsaw Daily Secret - Polska Edycja" src="http://static.dailysecret.com/uploads/edition/123/logo_landmark_transparent_bg/warsaw-daily-secret-logo-landmark.png"></a>
-          </li>
-        </ul>
-      </div>
-      <span class="scroll-indicator-holder hidden-xs"><a class="scroll-indicator smooth-scrolr small-headline" href="#footer">SCROLL DOWN</a></span>
-    </div>
-
-    <footer id="footer">
-      <div class="container">
-        <div class="row">
         
-          <section class="col-sm-4">
-            <h4 class="title">THE COMPANY</h4>
-
-            <ul>
-              <li>
-                <a href="http://ideas.dailysecret.com/" target="_blank" title="Daily Secret">About Us</a>
-              </li>
-
-              <li>
-                <a href="http://mediakit.dailysecret.com" target="_blank" title="Daily Secret Mediakit">Advertise</a>
-              </li>
-
-              <li>
-                <a href="http://ideas.dailysecret.com/careers-values/" target="_blank" title="JOIN THE TEAM - Daily Secret Ideas">Careers</a>
-              </li>
-
-              <li>
-                <a href="http://ideas.dailysecret.com/editorial-policy/" target="_blank" title="Daily Secret Editorial">Editorial Policy</a>
-              </li>
-
-              <li>
-                <a href="http://ideas.dailysecret.com/editorial-policy/" rel="nofollow" title="Get Featured | Daily Secret">Get Featured</a>
-              </li>
-
-              <li>
-                <a href="http://ideas.dailysecret.com/good-karma/" target="_blank" title="THE GOOD KARMA PROJECT - Daily Secret Ideas">Good Karma</a>
-              </li>
-
-              <li>
-                <a href="http://ideas.dailysecret.com/press/" target="_blank" title="Daily Secret - Press - Daily Secret Ideas">Press</a>
-              </li>
-
-              <li>
-                <a href="privacy-policy/index.html" title="Privacy Policy | Daily Secret">Privacy Policy</a>
-              </li>
-            </ul>
-          </section>
+      </div>
+  
+      <div class="row phone-padding">
+        <div class="col-sm-9 visible-xs">
+          <ul class="editions">
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://turkey.dailysecret.com/ankara/en"><img alt="Ankara Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/124/logo_landmark_transparent_bg/ankara-daily-secret-in-english-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"tr"}'>
+              <a href="http://turkey.dailysecret.com/ankara/tr"><img alt="Ankara Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/33/logo_landmark_transparent_bg/ankara-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://greece.dailysecret.com/athens/en"><img alt="Athens Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/4/logo_landmark_transparent_bg/athens-daily-secret-in-english-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"el"}'>
+              <a href="http://greece.dailysecret.com/athens/el"><img alt="Athens Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/1/logo_landmark_transparent_bg/athens-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"asia","locale":"en"}'>
+              <a href="http://thailand.dailysecret.com/bangkok/en"><img alt="Bangkok Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/42/logo_landmark_transparent_bg/bangkok-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"de"}'>
+              <a href="http://germany.dailysecret.com/berlin/de"><img alt="Berlin Daily Secret - Deutsche Edition" src="http://static.dailysecret.com/uploads/edition/15/logo_landmark_transparent_bg/berlin-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://turkey.dailysecret.com/bodrum/en"><img alt="Bodrum Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/107/logo_landmark_transparent_bg/bodrum-daily-secret-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"tr"}'>
+              <a href="http://turkey.dailysecret.com/bodrum/tr"><img alt="Bodrum Daily Secret - Türkçe Edisyon" src="http://static.dailysecret.com/uploads/edition/17/logo_landmark_transparent_bg/bodrum-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"ro"}'>
+              <a href="http://romania.dailysecret.com/bucharest/ro"><img alt="Bucharest Daily Secret - Ediție Românească" src="http://static.dailysecret.com/uploads/edition/120/logo_landmark_transparent_bg/bucharest-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"hu"}'>
+              <a href="http://hungary.dailysecret.com/budapest/hu"><img alt="Budapest Daily Secret - Magyar Kiadás" src="http://static.dailysecret.com/uploads/edition/119/logo_landmark_transparent_bg/budapest-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"es"}'>
+              <a href="http://argentina.dailysecret.com/buenosaires/es"><img alt="Buenos Aires Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/24/logo_landmark_transparent_bg/buenosaires-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://argentina.dailysecret.com/buenosaires/en"><img alt="Buenos Aires Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/61/logo_landmark_transparent_bg/buenosaires-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"da"}'>
+              <a href="http://denmark.dailysecret.com/copenhagen/da"><img alt="Copenhagen Daily Secret - Dansk Edition" src="http://static.dailysecret.com/uploads/edition/122/logo_landmark_transparent_bg/copenhagen-daily-secret-logo-landmark.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"el"}'>
+              <a href="http://cyprus.dailysecret.com/cyprus/el"><img alt="Cyprus Daily Secret - Ελληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/64/logo_landmark_transparent_bg/cyprus-daily-secret-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"el"}'>
+              <a href="http://greece.dailysecret.com/nation/el"><img alt="Greece Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/114/logo_landmark_transparent_bg/greece-daily-secret-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"asia","locale":"en"}'>
+              <a href="http://china.dailysecret.com/hongkong/en"><img alt="Hong Kong Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/56/logo_landmark_transparent_bg/hongkong-daily-secret-in-english-logo1.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://turkey.dailysecret.com/istanbul/en"><img alt="Istanbul Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/12/logo_landmark_transparent_bg/istanbul-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"tr"}'>
+              <a href="http://turkey.dailysecret.com/istanbul/tr"><img alt="Istanbul Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/3/logo_landmark_transparent_bg/istanbul-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://turkey.dailysecret.com/izmir/en"><img alt="Izmir Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/50/logo_landmark_transparent_bg/izmir-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"tr"}'>
+              <a href="http://turkey.dailysecret.com/izmir/tr"><img alt="Izmir Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/113/logo_landmark_transparent_bg/izmir-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://peru.dailysecret.com/lima/en"><img alt="Lima Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/59/logo_landmark_transparent_bg/lima-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"es"}'>
+              <a href="http://peru.dailysecret.com/lima/es"><img alt="Lima Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/13/logo_landmark_transparent_bg/lima-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"pt-PT"}'>
+              <a href="http://portugal.dailysecret.com/lisbon/pt"><img alt="Lisbon Daily Secret - Português Edição" src="http://static.dailysecret.com/uploads/edition/117/logo_landmark_transparent_bg/lisbon-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://uk.dailysecret.com/london/en"><img alt="London Daily Secret" src="http://static.dailysecret.com/uploads/edition/44/logo_landmark_transparent_bg/london-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://spain.dailysecret.com/madrid/en"><img alt="Madrid Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/23/logo_landmark_transparent_bg/madrid-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"es"}'>
+              <a href="http://spain.dailysecret.com/madrid/es"><img alt="Madrid Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/26/logo_landmark_transparent_bg/madrid-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"es"}'>
+              <a href="http://mexico.dailysecret.com/mexicocity/es"><img alt="Mexico Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/20/logo_landmark_transparent_bg/mexicocity-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://mexico.dailysecret.com/mexicocity/en"><img alt="Mexico City - English Edition" src="http://static.dailysecret.com/uploads/edition/60/logo_landmark_transparent_bg/mexicocity-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"asia","locale":"en"}'>
+              <a href="http://india.dailysecret.com/mumbai/en"><img alt="Mumbai Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/82/logo_landmark_transparent_bg/mumbai-daily-secret-in-english-logo1.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://greece.dailysecret.com/mykonos/en"><img alt="Mykonos Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/106/logo_landmark_transparent_bg/mykonos-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"el"}'>
+              <a href="http://greece.dailysecret.com/mykonos/el"><img alt="Mykonos Daily Secret - Ελληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/16/logo_landmark_transparent_bg/mykonos-daily-secret-land.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"es"}'>
+              <a href="http://panama.dailysecret.com/panamacity/es"><img alt="Panama Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/105/logo_landmark_transparent_bg/panama-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"fr"}'>
+              <a href="http://france.dailysecret.com/paris/fr"><img alt="Paris Daily Secret - Edition Française" src="http://static.dailysecret.com/uploads/edition/25/logo_landmark_transparent_bg/paris-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://usa.dailysecret.com/sanfrancisco/en"><img alt="San Francisco Daily Secret" src="http://static.dailysecret.com/uploads/edition/14/logo_landmark_transparent_bg/sanfrancisco-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"es"}'>
+              <a href="http://chile.dailysecret.com/santiago/es"><img alt="Santiago Daily Secret - Edición en español" src="http://static.dailysecret.com/uploads/edition/86/logo_landmark_transparent_bg/santiago-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"asia","locale":"en"}'>
+              <a href="http://china.dailysecret.com/shanghai/en"><img alt="Shanghai Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/19/logo_landmark_transparent_bg/shanghai-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"se"}'>
+              <a href="http://sweden.dailysecret.com/stockholm/se"><img alt="Stockholm Daily Secret - Svenska Utgåva" src="http://static.dailysecret.com/uploads/edition/118/logo_landmark_transparent_bg/stockholm-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"he"}'>
+              <a href="http://israel.dailysecret.com/telaviv/he"><img alt="Tel Aviv Daily Secret - גירסה עברית" src="http://static.dailysecret.com/uploads/edition/29/logo_landmark_transparent_bg/telaviv-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://israel.dailysecret.com/telaviv/en"><img alt="Tel Aviv Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/32/logo_landmark_transparent_bg/telaviv-daily-secret-in-english-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"el"}'>
+              <a href="http://greece.dailysecret.com/thessaloniki/el"><img alt="Thessaloniki Daily Secret - Eλληνική Έκδοση" src="http://static.dailysecret.com/uploads/edition/9/logo_landmark_transparent_bg/thessaloniki-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"en"}'>
+              <a href="http://greece.dailysecret.com/thessaloniki/en"><img alt="Thessaloniki Daily Secret - English Edition" src="http://static.dailysecret.com/uploads/edition/121/logo_landmark_transparent_bg/thessaloniki-in-english-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://canada.dailysecret.com/toronto/en"><img alt="Toronto Daily Secret" src="http://static.dailysecret.com/uploads/edition/94/logo_landmark_transparent_bg/toronto-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"tr"}'>
+              <a href="http://turkey.dailysecret.com/nation/tr"><img alt="Turkey Daily Secret - Türkçe Edisyon " src="http://static.dailysecret.com/uploads/edition/65/logo_landmark_transparent_bg/turkey-daily-secret-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"americas","locale":"en"}'>
+              <a href="http://canada.dailysecret.com/vancouver/en"><img alt="Vancouver Daily Secret" src="http://static.dailysecret.com/uploads/edition/27/logo_landmark_transparent_bg/vancouver-daily-secret-landmark-logo.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"de"}'>
+              <a href="http://austria.dailysecret.com/vienna/de"><img alt="Vienna Daily Secret - Deutsche Edition" src="http://static.dailysecret.com/uploads/edition/28/logo_landmark_transparent_bg/vienna-daily-secret-landmark.png"></a>
+            </li>
+  
+            <li data-target='{"region":"europe","locale":"pl"}'>
+              <a href="http://poland.dailysecret.com/warsaw/pl"><img alt="Warsaw Daily Secret - Polska Edycja" src="http://static.dailysecret.com/uploads/edition/123/logo_landmark_transparent_bg/warsaw-daily-secret-logo-landmark.png"></a>
+            </li>
+          </ul>
+        </div>
+        <span class="scroll-indicator-holder hidden-xs"><a class="scroll-indicator smooth-scrolr small-headline" href="#footer">SCROLL DOWN</a></span>
+      </div>
+  
+      <footer id="footer">
+        <div class="container">
+          <div class="row">
           
-          <section class="col-sm-4">
-            <h4 class="title">MEDIAKIT</h4>
-
-            <ul>
-              <li>
-                <a href="http://mediakit.dailysecret.com/" title="Overview of Daily Secret Mediakit">Overview</a>
-              </li>
-
-              <li>
-                <a href="http://mediakit.dailysecret.com/audience/" title="Daily Secret's Audience">Audience</a>
-              </li>
-
-              <li>
-                <a href="http://mediakit.dailysecret.com/offerings/" title="Daily Secret's Offerings">Offerings</a>
-              </li>
-
-              <li>
-                <a href="http://mediakit.dailysecret.com/opportunities/" title="Daily Secret's opportunities">Opportunities</a>
-              </li>
-            </ul>
+            <section class="col-sm-4">
+              <h4 class="title">THE COMPANY</h4>
+  
+              <ul>
+                <li>
+                  <a href="http://ideas.dailysecret.com/" target="_blank" title="Daily Secret">About Us</a>
+                </li>
+  
+                <li>
+                  <a href="http://mediakit.dailysecret.com" target="_blank" title="Daily Secret Mediakit">Advertise</a>
+                </li>
+  
+                <li>
+                  <a href="http://ideas.dailysecret.com/careers-values/" target="_blank" title="JOIN THE TEAM - Daily Secret Ideas">Careers</a>
+                </li>
+  
+                <li>
+                  <a href="http://ideas.dailysecret.com/editorial-policy/" target="_blank" title="Daily Secret Editorial">Editorial Policy</a>
+                </li>
+  
+                <li>
+                  <a href="http://ideas.dailysecret.com/editorial-policy/" rel="nofollow" title="Get Featured | Daily Secret">Get Featured</a>
+                </li>
+  
+                <li>
+                  <a href="http://ideas.dailysecret.com/good-karma/" target="_blank" title="THE GOOD KARMA PROJECT - Daily Secret Ideas">Good Karma</a>
+                </li>
+  
+                <li>
+                  <a href="http://ideas.dailysecret.com/press/" target="_blank" title="Daily Secret - Press - Daily Secret Ideas">Press</a>
+                </li>
+  
+                <li>
+                  <a href="privacy-policy/index.html" title="Privacy Policy | Daily Secret">Privacy Policy</a>
+                </li>
+              </ul>
             </section>
-          
-            <section class="col-sm-4 badges">
-              <a class="endeavor" href="http://www.endeavor.org" target="_blank"><img alt="Endeavor Entrepreneur" src="http://static.dailysecret.com/assets/endeavorLogo@2x-336607bd9c8ec7a4b33fa5a58d6b35b0.png"></a> <a class="fieldtrip" href="http://www.fieldtripper.com" target="_blank"><img alt="Google Field Trip" src="http://static.dailysecret.com/assets/fieldtrip-badge@2x-111aa76d35d300bc7fc7606eb3fe188c.png"></a>
-              <section class="copyright">
-                © 2013 Daily Lists, All Rights Reserved
+            
+            <section class="col-sm-4">
+              <h4 class="title">MEDIAKIT</h4>
+  
+              <ul>
+                <li>
+                  <a href="http://mediakit.dailysecret.com/" title="Overview of Daily Secret Mediakit">Overview</a>
+                </li>
+  
+                <li>
+                  <a href="http://mediakit.dailysecret.com/audience/" title="Daily Secret's Audience">Audience</a>
+                </li>
+  
+                <li>
+                  <a href="http://mediakit.dailysecret.com/offerings/" title="Daily Secret's Offerings">Offerings</a>
+                </li>
+  
+                <li>
+                  <a href="http://mediakit.dailysecret.com/opportunities/" title="Daily Secret's opportunities">Opportunities</a>
+                </li>
+              </ul>
               </section>
-          </section>
-
+            
+              <section class="col-sm-4 badges">
+                <a class="endeavor" href="http://www.endeavor.org" target="_blank"><img alt="Endeavor Entrepreneur" src="http://static.dailysecret.com/assets/endeavorLogo@2x-336607bd9c8ec7a4b33fa5a58d6b35b0.png"></a> <a class="fieldtrip" href="http://www.fieldtripper.com" target="_blank"><img alt="Google Field Trip" src="http://static.dailysecret.com/assets/fieldtrip-badge@2x-111aa76d35d300bc7fc7606eb3fe188c.png"></a>
+                <section class="copyright">
+                  © 2013 Daily Lists, All Rights Reserved
+                </section>
+            </section>
+  
+          </div>
         </div>
-      </div>
-    </footer>
+      </footer>
+    </div><!-- .wrap -->
   </body>
 </html>
