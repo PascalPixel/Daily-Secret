@@ -75,14 +75,18 @@ body.landing img {
   max-width: 100%;
 }
 
-html,body,body.landing .wrap,body.landing #CITY_LIST {
+html, body, body.landing, body.landing #CITY_LIST, body.landing .wrap {
   height: 100%;
 }
 
 body.landing .wrap {
   width: 100%;
-  transition: left 0.5s;
-  -webkit-transition: left 0.5s;
+  height: 100%;
+  overflow: scroll;
+}
+
+body.landing .wrap .wrapscroll {
+  padding: 100px 20px;
 }
 
 body.landing #CITY_LIST {
@@ -91,7 +95,6 @@ body.landing #CITY_LIST {
   width: 300px;
   position: fixed;
   left:-300px;
-  padding: 100px 20px;
   transition: left 0.5s;
   -webkit-transition: left 0.5s;
   top: 0px;
@@ -383,7 +386,7 @@ body.landing #footer a {
   margin-top: 40px;
 }
 
-@media only screen and (max-width:768px) {
+@media only screen and (max-width:760px) {
   body.landing {
     padding: 70px 20px 20px;
   }
