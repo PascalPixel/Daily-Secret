@@ -215,7 +215,7 @@
             map: map,
             title: sites.city_name,
             html: "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img style=\"margin:10px 0 15px;\" src=\"" + sites.languages[0].secret.image_url + "\"\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "\">Read the rest of the secret >><\/a><\/p>",
-            bigfloat: "<img width=\"30px\" height=\"30px\" style=\"margin-top: -10px;margin-right:10px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",
+            bigfloat: "<img width=\"17px\" height=\"17px\" style=\"margin-top: -4px;margin-right:7px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",
             icon: image
           });
           google.maps.event.addListener(marker, "click", function() {
@@ -317,7 +317,6 @@
 
     <div class="world-map">
       <div id="map_canvas" class="hidden-xs"></div>
-      <div class="dailysecretfloat hidden-xs" id="bigfloat"></div>
       <div class="floatbox visible-xs">
         <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
         <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: -15px 0 10px;">BECOME A MEMBER</h1>
@@ -600,22 +599,22 @@
     <div id="CITY_LIST">
       <div class="wrap">
         <div class="wrapscroll">
-          <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
+          <h3 class="dailysecretfloat" id="bigfloat"></h3>
+            <div id="infobox">
+              <div id="secret">
+                Select a city in the map
+              </div>
+            </div>
+            <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
             <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: -15px 0 10px;">BECOME A MEMBER</h1>
             <span style="font-size:14px;line-height:20px;color:#FFF;text-transform:none;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</span>
-    
-            <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
+             <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
               <div style="margin:0;padding:0;display:inline">
                 <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
               </div><br>
               <input style="display:none;" name="selectedition">
               <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
             </form>
-            <div id="infobox">
-              <div id="secret">
-                Select a city in the map
-              </div>
-            </div>
           <div id="editionList"></div>
         </div>
       </div>

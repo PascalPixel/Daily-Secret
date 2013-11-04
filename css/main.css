@@ -87,6 +87,7 @@ body.landing .wrap {
 
 body.landing .wrap .wrapscroll {
   padding: 100px 20px;
+  min-height: 100%;
 }
 
 body.landing #CITY_LIST {
@@ -250,13 +251,7 @@ body.landing .navbar-brand {
 
 body.landing .dailysecretfloat {
   font-family: PlantinHeadlineMTBoldCond, Cambria, Georgia, serif;
-  font-size: 40px;
   text-transform: uppercase;
-  width: 100%;
-  position: fixed;
-  top:150px;
-  left: 0;
-  right:0;
   text-align: center;
   letter-spacing: 0px;
 }
