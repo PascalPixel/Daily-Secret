@@ -163,7 +163,23 @@ body.landing .world-map {
   background-color: #202020;
 }
 
+
+body.landing .dailysecretfloat {
+  font-family: PlantinHeadlineMTBoldCond, Cambria, Georgia, serif;
+  font-size: 72px;
+  text-transform: uppercase;
+  width: 100%;
+  position: fixed;
+  top:150px;
+  left: 0;
+  right:0;
+  text-align: center;
+  letter-spacing: 0px;
+}
+
 body.landing .floatbox {
+
+
   background:black;
   color:white;
   padding:20px;
@@ -247,13 +263,6 @@ body.landing .navbar-brand {
   text-align: center;
   letter-spacing: 0px;
   padding: 12px 0 0;
-}
-
-body.landing .dailysecretfloat {
-  font-family: PlantinHeadlineMTBoldCond, Cambria, Georgia, serif;
-  text-transform: uppercase;
-  text-align: center;
-  letter-spacing: 0px;
 }
 
 body.landing #map_canvas {

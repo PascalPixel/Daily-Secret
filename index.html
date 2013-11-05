@@ -153,7 +153,7 @@
             map: map,
             title: sites.city_name,
             html: secret_html(sites), 
-            bigfloat: "<img width=\"17px\" height=\"17px\" style=\"margin-top: -4px;margin-right:7px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",                  
+            bigfloat: sites.city_name + " DAILY SECRET",                  
             icon: image
           });
           google.maps.event.addListener(marker, "click", function() {
@@ -163,9 +163,9 @@
             $('input[name=selectedition]').val(this.title);
             $('#CITY_LIST').addClass("active");
           });
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
+          $("#editionList").append("<a style=\"\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " Daily Secret (" + sites.languages[0].locale + ") </a><br>");
           if (sites.languages[1]) {
-            $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+            $("#editionList").append("<a style=\"\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " Daily Secret (" + sites.languages[1].locale + ") </a><br>");
           }
           
         }
@@ -272,6 +272,7 @@
       </div>
     </div>
 
+    
     <div class="row phone-padding">
       <div class="col-sm-9 visible-xs">
         <ul class="editions">
@@ -540,22 +541,26 @@
     <div id="CITY_LIST">
       <div class="wrap">
         <div class="wrapscroll">
-          <h3 class="dailysecretfloat" id="bigfloat"></h3>
+
+          <div class="dailysecretfloat hidden-xs" id="bigfloat"></div>
+          <div class="floatbox visible-xs"></div>
+
+          <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: 25px 0 10px;">BECOME A MEMBER</h1>
+          <span style="font-size:14px;line-height:20px;color:#FFF;text-transform:none;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</span>
+           <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
+            <div style="margin:0;padding:0;display:inline">
+              <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
+            </div><br>
+            <input style="display:none;" name="selectedition">
+            <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
+          </form>          
             <div id="infobox">
               <div id="secret">
                 Select a city in the map
               </div>
             </div>
             <h1 style="font-size:18px;line-height:26px;"><img alt="Daily Secret" src="http://static.dailysecret.com/assets/organization-logo-b875b16b9bfb5330baba5e63586b334d.gif" style="display:none;"> <a href="index.html" style="display:none;">Welcome to Daily Secret. Insiders' guide from real insiders.</a></h1>
-            <h1 style="color:white;font-size:23px;font-weight:bold;text-align:center;margin: 25px 0 10px;">BECOME A MEMBER</h1>
-            <span style="font-size:14px;line-height:20px;color:#FFF;text-transform:none;">Daily Secret is a daily email with the best that your city has to offer. We send you one secret every day and ask that you share it only with your close friends.</span>
-             <form accept-charset="UTF-8" action="http://www.dailysecret.com/subscribe_from_landing" class="signup generic" id="new_user" method="post" name="new_user">
-              <div style="margin:0;padding:0;display:inline">
-                <input name="utf8" type="hidden" value="✓"><input name="authenticity_token" type="hidden" value="GEsha0JWzHbkIaE962UnbXuWUykt+/6m/QnslCGXbes=">
-              </div><br>
-              <input style="display:none;" name="selectedition">
-              <p class="fields clearfix"><input class="email required" id="user_email" name="user[email]" size="25" title="Your email address" type="text" onfocus="if(this.value == 'Your email address') { this.value = ''; }" value="Your email address"> <input id="user_origin" name="user[origin]" type="hidden" value="UrlOrigin_1"> <span class="yellow-button signup glow pull-right"><input name="subscribe" type="submit" value="SIGN UP" style="width:60px;padding-left:4px;padding-right:4px;"></span></p>
-            </form>
+
             <hr style="margin-top:30px;margin-bottom:30px;">
             <h5 class="small-headline">Not your city? Here's the full list</h5>
             <div id="editionList"></div>
