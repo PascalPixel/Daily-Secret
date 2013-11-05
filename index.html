@@ -9,6 +9,7 @@
     <link href="css/main.css?v=3" media="all" rel="stylesheet" type="text/css">
     <script src='http://static.dailysecret.com/assets/application-01f339f182a61d37215817b9fc8e540e.js' type='text/javascript'></script>
     <script src="https://maps.googleapis.com/maps/api/js?sensor=false" type="text/javascript"></script>
+    <script src="cities.js" type="text/javascript"></script>
     <script type="text/javascript">
 
       var DAILY_SECRET_ID = 'Daily Secret';
@@ -127,78 +128,14 @@
         var homeControl = new HomeControl(homeControlDiv, map);
       }
 
-      var sites = [
-        {
-          "city_name": "athens",
-          "latitude": 37.983716,
-          "longitude": 23.729310,
-          "languages": [
-            {
-              "locale": "en",
-              "homepage_url": "http://greece.dailysecret.com/athens/en",
-              "flag_url": "http://static.dailysecret.com/assets/new-flags/EN.png",
-              "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
-              "secret": {
-                "category": "Bars",
-                "title": "Wise Bar",
-                "subtitle": "Behind Hidden Curtains",
-                "image_url": "http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg",
-                "text": "Will you draw the curtains and let some drinks in?' read his text message. In our attempt to obey our scout's...",
-                "url": "http://greece.dailysecret.com/athens/en/kolonaki/bars/wise-bar"
-              }
-            },
-            {
-              "locale": "el",
-              "homepage_url": "http: //greece.dailysecret.com/athens/el",
-              "flag_url": "http://static.dailysecret.com/assets/new-flags/EL.png",
-              "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
-              "secret": {
-                "category": "Bars",
-                "title": "Κρυφό Μπαρ",
-                "subtitle": "Πίσω από τις λέξεις",
-                "image_url": "http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg",
-                "text": "Will you draw the curtains and let some drinks in?' read his text message. In our attempt to obey our scout's...",
-                "url": "http://greece.dailysecret.com/athens/en/kolonaki/bars/wise-bar"
-              }
-            }
-          ]
-        },
-        {
-          "city_name": "istanbul",
-          "latitude": 33.231,
-          "longitude": 35.324,
-          "languages": [
-            {
-              "locale": "tr",
-              "homepage_url": "http://greece.dailysecret.com/athens/en",
-              "flag_url": "http://static.dailysecret.com/assets/new-flags/EN.png",
-              "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
-              "secret": {
-                "category": "Bars",
-                "title": "Wise Bar",
-                "subtitle": "Behind Hidden Curtains",
-                "image_url": "http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg",
-                "text": "Will you draw the curtains and let some drinks in?' read his text message. In our attempt to obey our scout's...",
-                "url": "http://greece.dailysecret.com/athens/en/kolonaki/bars/wise-bar"
-              }
-            },
-            {
-              "locale": "en",
-              "homepage_url": "http: //greece.dailysecret.com/athens/el",
-              "flag_url": "http://static.dailysecret.com/assets/new-flags/EL.png",
-              "form_action": "http: //greece.dailysecret.com/athens/en/signup_from_landingpage",
-              "secret": {
-                "category": "Bars",
-                "title": "Wise Bar",
-                "subtitle": "Behind Hidden Curtains",
-                "image_url": "http://static.dailysecret.com/uploads/banner/1320/banner/crop_2_bar5.jpg",
-                "text": "Will you draw the curtains and let some drinks in?' read his text message. In our attempt to obey our scout's...",
-                "url": "http://greece.dailysecret.com/athens/en/kolonaki/bars/wise-bar"
-              }
-            }
-          ]
+      function secret_html(sites) {
+        if (sites.languages[0].secret) {
+          return  "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img style=\"margin:10px 0 15px;\" src=\"" + sites.languages[0].secret.image_url + "\"\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "\">Read the rest of the secret >><\/a><\/p>";
+        } else {
+          return "";
         }
-      ];
+      }
+
 
       function setMarkers(map, markers) {
         var image = {
@@ -207,6 +144,7 @@
           scaledSize: new google.maps.Size(20, 33),
           anchor: new google.maps.Point(10, 33)
         };
+
         for (var i = 0; i < markers.length; i++) {
           var sites = markers[i];
           var siteLatLng = new google.maps.LatLng(sites.latitude, sites.longitude);
@@ -214,8 +152,8 @@
             position: siteLatLng,
             map: map,
             title: sites.city_name,
-            html: "<span class=\"small-headline\">TODAY IN " + sites.city_name + "<\/span><h3><b>" + sites.languages[0].secret.title + "<\/b><\/h3><span style=\"display:block;margin-top:-5px;\">" + sites.languages[0].secret.subtitle + "<\/span><img style=\"margin:10px 0 15px;\" src=\"" + sites.languages[0].secret.image_url + "\"\/><p>" + sites.languages[0].secret.text + "<br><a href=\"" + sites.languages[0].secret.url + "\">Read the rest of the secret >><\/a><\/p>",
-            bigfloat: "<img width=\"17px\" height=\"17px\" style=\"margin-top: -4px;margin-right:7px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",
+            html: secret_html(sites), 
+            bigfloat: "<img width=\"17px\" height=\"17px\" style=\"margin-top: -4px;margin-right:7px;\" src=\"http:\/\/static.dailysecret.com\/assets\/new\/birdy-b6e1b6958123c28db301211f5a15635f.png\"\/>" + sites.city_name + " DAILY SECRET",                  
             icon: image
           });
           google.maps.event.addListener(marker, "click", function() {
@@ -226,7 +164,10 @@
             $('#CITY_LIST').addClass("active");
           });
           $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[0].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[0].flag_url + "\"/></a><br>");
-          $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+          if (sites.languages[1]) {
+            $("#editionList").append("<a style=\"text-transform:uppercase;\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[1].homepage_url + "\">" + sites.city_name + " DAILY SECRET (" + sites.languages[1].locale + ") <img style=\"width:20px;height:13px;max-height:none;max-width:none;\" src=\"" + sites.languages[1].flag_url + "\"/></a><br>");
+          }
+          
         }
       }
 
