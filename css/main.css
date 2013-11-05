@@ -86,8 +86,22 @@ body.landing .wrap {
 }
 
 body.landing .wrap .wrapscroll {
-  padding: 100px 20px;
+  padding: 20px;
   min-height: 100%;
+}
+
+body.landing .bodywrap {
+  position: absolute;
+  top:0px;
+  bottom:0px;
+  right:0px;
+  left:0px;
+  transition: left 0.5s;
+  -webkit-transition: left 0.5s;
+}
+
+body.landing .bodywrap.active {
+  left: 300px;
 }
 
 body.landing #CITY_LIST {
@@ -192,6 +206,7 @@ body.landing .floatbox {
 body.landing .navbar-default {
   min-height: 40px;
   height: 40px;
+  position: absolute;
 }
 
 body.landing #infobox {
