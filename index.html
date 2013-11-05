@@ -162,6 +162,7 @@
             map.panTo(this.position);
             $('input[name=selectedition]').val(this.title);
             $('#CITY_LIST').addClass("active");
+            $('.bodywrap').addClass("active");
           });
           $("#editionList").append("<a style=\"\" class=\"editionname edition" + sites.city_name + "\" href=\"" + sites.languages[0].homepage_url + "\">" + sites.city_name + " Daily Secret (" + sites.languages[0].locale + ") </a><br>");
           if (sites.languages[1]) {
